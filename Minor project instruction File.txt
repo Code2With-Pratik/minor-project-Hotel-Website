@@ -16,3 +16,6 @@
 7. For the Admin pannel dashboard  type " http://localhost:8000/admin/index.php " 
 
 8 git add . ( to add all file).
+  git commit -m " commit statement"
+  git push origin main.
+
