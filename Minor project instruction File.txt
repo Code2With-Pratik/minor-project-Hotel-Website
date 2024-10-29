@@ -14,3 +14,5 @@
 6. Select phpMyAdmin or type " http://localhost:8080/phpmyadmin/ "
 
 7. For the Admin pannel dashboard  type " http://localhost:8000/admin/index.php " 
+
+8 git add . ( to add all file).
