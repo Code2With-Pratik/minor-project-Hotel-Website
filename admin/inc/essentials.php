@@ -8,6 +8,7 @@ function adminLogin()
            window.location.href='index.php';
         </script>";
     }
+  session_regenerate_id(true);
 }
 
 function redirect($url){
