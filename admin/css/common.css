@@ -33,3 +33,9 @@
   margin: 0 auto;
   height: 1.7px;
 }
+.custom-alert{
+  position: fixed;
+  top: 25px;
+  right: 25px;
+  
+}
