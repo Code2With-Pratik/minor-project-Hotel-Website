@@ -1,3 +1,6 @@
+<?php require('inc/db_config.php'); ?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,11 +9,20 @@
     <title>Admin Login Panel</title>
     <?php require('inc/links.php'); ?>
 </head>
+<style>
+    div.login-form{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        width: 400px;
+    }
+</style>
 <body class="bg-light">
+    
+  <!-- admin login form -->
 
- <!-- admin login form -->
-
- <div class="login-form text-center rounded bg-white shadow overflow-hidden ">
+  <div class="login-form text-center rounded bg-white shadow overflow-hidden ">
     <form>
         <h4 class="bg-dark text-white py-3">ADMIN LOGIN PANNEL</h4>
         <div class="p-4">
@@ -24,8 +36,6 @@
         </div>
     </form>
   </div>
-    
-
 
 
 
