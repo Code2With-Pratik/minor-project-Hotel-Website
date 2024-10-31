@@ -46,13 +46,13 @@
     <a href="tel:+919876543210" class="d-inline-block text-decoration-none text-dark">
       <i class="bi bi-telephone-fill"></i> +91 9876543210
     </a>
-    <!-- <h5 class="mt-4">Email</h5>
+    <h5 class="mt-4">Email</h5>
     <a href="mailto: try.pratik1204@gmail.com" class="d-inline-block text-decoration-none text-dark">
     <i class="bi bi-envelope-at-fill"></i>   try.pratik1204@gmail.com
-    </a> -->
+    </a>
 
 
-    <!-- <h5 class="mt-4">Follow Us</h5>
+    <h5 class="mt-4">Follow Us</h5>
     <a href="#" class="d-inline-block text-dark fs-5 me-2">
       <span class="badge bg-light text-dark fs-6">
       <i class="bi bi-twitter"></i></span>
@@ -64,7 +64,7 @@
     <a href="#" class="d-inline-block text-dark fs-5">
       <span class="badge bg-light text-dark fs-6">
       <i class="bi bi-facebook"></i></span>
-    </a> -->
+    </a>
      </div>
  </div>
     <div class="col-lg-6 col-md-6 px-4">
