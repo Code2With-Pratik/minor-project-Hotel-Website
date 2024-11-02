@@ -1,5 +1,5 @@
              <!-- nav bar -->
-    <nav class="navbar navbar-expand-lg bg-body-tertiary bg-white pg-lg-3 py-lg-2 shadow-sm sticky-top">
+             <nav class="navbar navbar-expand-lg bg-body-tertiary bg-white pg-lg-3 py-lg-2 shadow-sm sticky-top">
       <div class="container-fluid">
         <a class="navbar-brand me-5 fw-bold fs-3 h-font" href="index.php"
           >Hotel</a
