@@ -331,12 +331,18 @@
 
     xhr.onload = function(){
       contacts_data = JSON.parse(this.responseText);
-      console.log(contact_data);
+      contacts_data = Object.values(contacts_data);
+
+      for(i=0;i<contacts_p_id.length;i++){
+        document.getElementById(contacts_p_id[i]).innerText = contacts_data[i+1];
+      }
+      iframe.src = contacts_data[9];
+      contacts_inp(contacts_data);
     }
 
     xhr.send('get_contacts');
   }
-
+  
   window.onload = function(){
     get_general();
     get_contacts();
