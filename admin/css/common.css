@@ -44,6 +44,13 @@
 }
 
 @media  screen and (max-width: 991px) {
+  .custom-alert{
+    position: fixed;
+    top: 130px;
+    right: 12px;
+    height: 60px;
+    width: 250px;
+  }
   #dashboard-menu{
     height: auto;
     width: 100%;
