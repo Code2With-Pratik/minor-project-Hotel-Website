@@ -16,7 +16,6 @@
         .availability-form{
           margin-top: 25px;
           padding: 0 35px;
-
         }
        }
     </style>
