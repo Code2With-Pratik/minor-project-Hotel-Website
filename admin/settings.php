@@ -145,7 +145,7 @@
                 </div>
               </div>
             </div>
-            
+
              <!--Contact Detail Modal -->
              <div class="modal fade" id="contacts-s" data-bs-backdrop="static" data-bs-keyboard="true" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                   <div class="modal-dialog modal-lg">
@@ -222,12 +222,6 @@
 </div>
 
   
-
-      </div>
-    </div>
-  </div>
- 
-
 
 <?php require('inc/scripts.php'); ?> 
 <!-- AJAX code -->
