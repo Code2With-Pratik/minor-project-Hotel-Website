@@ -441,7 +441,42 @@
     xhr.send(data_str);
   }
 
-  
+  team_s_form.addEventListener('submit',function(e){
+    e.preventDefault();
+    add_member();
+  });
+
+  function add_member()
+  {
+    let data = new FormData();
+    data.append('name',member_name_inp.value);
+    data.append('picture',member_picture_inp.files[0]);
+    data.append('add_member','');
+
+    let xhr = new XMLHttpRequest();
+    xhr.open("POST","ajax/settings_crud.php",true);
+
+    xhr.onload = function(){
+      console.log(this.responseText);
+      // var myModal = document.getElementById('general-s');
+      // var modal = bootstrap.Modal.getInstance(myModal);
+      //  modal.hide();
+       
+      //  if(this.responseText == 1)
+      //  {
+      //   alert('success','Changes saved!');
+      //   get_general();
+      // }
+      //   else
+      //   {
+      //   alert('error','No Changes made!');
+      //   }
+    }
+
+    xhr.send(data);
+
+  }
+    
   window.onload = function(){
     get_general();
     get_contacts();
