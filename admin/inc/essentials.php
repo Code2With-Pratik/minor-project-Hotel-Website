@@ -1,6 +1,6 @@
 <?php
 
-    // frontend purpose data
+    // frontend purpose data   
 
     define('SITE_URL','http://127.0.0.1/hotelwebsite/');
     define('ABOUT_IMG_PATH',SITE_URL.'images/about/');
