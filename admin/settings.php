@@ -461,9 +461,9 @@
 
       xhr.onload = function(){
         console.log(this.responseText);
-        // var myModal = document.getElementById('general-s');
-        // var modal = bootstrap.Modal.getInstance(myModal);
-        // modal.hide();
+        var myModal = document.getElementById('general-s');
+        var modal = bootstrap.Modal.getInstance(myModal);
+        modal.hide();
         
         // if(this.responseText == 1)
         // {
