@@ -236,7 +236,7 @@
 
             <div class="modal fade" id="team-s" data-bs-backdrop="static" data-bs-keyboard="true" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
               <div class="modal-dialog">
-                <form id="team_s_form" enctype="multipart/form-data" >
+                <form id="team_s_form">
                   <div class="modal-content">
                     <div class="modal-header">
                       <h5 class="modal-title">Add Team Member</h5>
@@ -255,7 +255,7 @@
                     </div>
                     <div class="modal-footer">
                       <button type="button" onclick="" class="btn text-secondary shadow-none" data-bs-dismiss="modal" >CANCEL</button>
-                      <button type="POST" class="btn custom-bg text-white shadow-none">SUBMIT</button>
+                      <button type="submit" class="btn custom-bg text-white shadow-none">SUBMIT</button>
                     </div>
                   </div>
                 </form>
@@ -470,13 +470,19 @@
         else if(this.responseText == 'inv_size'){
           alert('error','Image should be less than 2 MB!');
         }
-        
+        else if(this.responseText == 'upd_failed'){
+          alert('error','Image upload failed. Server Down!');
+        }
+        else{
+          alert('success','New Member added');
+          member_name_inp.value='';
+          member_picture_inp.value='';
+        }
       };
 
     xhr.send('data');
   }
-
-  //41.20
+  
   
 
   window.onload = function(){
