@@ -227,7 +227,17 @@
                 </div>
 
                 <div class="row" id="team-data">
-
+                <div class="col-md-2 mb-3">
+                    <div class="card bg-dark text-white">
+                      <img src="../images/about/team.jpg" class="card-img">
+                      <div class="card-img-overlay text-end">
+                        <button type="button" class="btn btn-danger btn-sm shadow-none">
+                         <i class="bi bi-trash"></i> Delete
+                        </button>
+                      </div>
+                      <p class="card-text text-center px-3 py-2">Random Name</p>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
