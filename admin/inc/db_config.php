@@ -21,6 +21,13 @@
        return $data;
  }
 
+ function selectAll($table)
+ {
+   $con = $GLOBALS('con');
+   $res = mysqli_query($con,"SELECT * FROM $table");
+   return $res;
+ }
+
  function select($sql,$values,$datatypes)
  {
     $con = $GLOBALS['con'];
@@ -74,7 +81,7 @@
          mysqli_stmt_close($stmt);
          return $res;
        }
-       else{
+       else{  
         mysqli_stmt_close($stmt);
         die("Query cannot be executed - Insert");
        }
