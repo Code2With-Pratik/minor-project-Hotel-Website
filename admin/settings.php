@@ -463,8 +463,13 @@
         var myModal = document.getElementById('team-s');
         var modal = bootstrap.Modal.getInstance(myModal);
         modal.hide();
-        
-   
+
+        if(this.responseText == 'inv_img'){
+          alert('error','Only file format JPG,JPEG,PNG and webp are allowed!');
+        }
+        else if(this.responseText == 'inv_size'){
+          alert('error','Image should be less than 2 MB!');
+        }
         
       };
 
