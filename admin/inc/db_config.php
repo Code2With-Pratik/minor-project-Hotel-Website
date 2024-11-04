@@ -62,7 +62,7 @@
         die("Query cannot be prepared - Update");
     }
  }
-
+ 
  function insert($sql,$values,$datatypes)
  {
     $con = $GLOBALS['con'];
@@ -83,6 +83,7 @@
         die("Query cannot be prepared - Insert");
     }
  }
+ 
 
 
 ?>
