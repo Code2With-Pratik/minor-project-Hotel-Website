@@ -1,5 +1,12 @@
 <?php
 
+    // frontend purpose data
+
+    define('SITE_URL','http://127.0.0.1/hotelwebsite/');
+    define('ABOUT_IMG_PATH',SITE_URL.'images/about/');
+
+    // Backend upload process needs this data 
+
 define('UPLOAD_IMAGE_PATH',$_SERVER['DOCUMENT_ROOT'].'/minor project/images/');
 define('ABOUT_FOLDER','about/');
 
@@ -39,10 +46,10 @@ function uploadImage($image,$folder)
   $img_mime = $image('type');
 
   if(!in_array($img_mime,$valid_mime)){
-    return 'inv_img';      // invalid image or format
+    return 'inv_img';  // invalid image or format
   }
   else if(($image['size']/(1024*1024))>2){  // convert images size from bites to Megabytes
-    return 'inv_size';     // invalid size greater than 2 mb
+    return 'inv_size';  // invalid size greater than 2 mb
   }
   else{
     $ext = pathinfo($image['name'],PATHINFO_EXTENSION);
@@ -57,6 +64,5 @@ function uploadImage($image,$folder)
     }
   }
 }
-
 
 ?>
