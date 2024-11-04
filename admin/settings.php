@@ -227,7 +227,7 @@
                 </div>
 
                 <div class="row" id="team-data">
-                <div class="col-md-2 mb-3">
+                  <div class="col-md-2 mb-3">
                     <div class="card bg-dark text-white">
                       <img src="../images/about/team.jpg" class="card-img">
                       <div class="card-img-overlay text-end">
@@ -493,11 +493,24 @@
     xhr.send('data');
   }
 
+  function get_members()
+  {
+    let xhr = new XMLHttpRequest();
+    xhr.open("POST","ajax/settings_crud.php",true);
+    xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+
+    xhr.onload = function(){
+     document.getElementById('team-data').innerHTML = "this.responseText";
+    }
+
+    xhr.send('get_members');
+  }
   
 
   window.onload = function(){
     get_general();
     get_contacts();
+    get_members();
   }
 
 </script>
