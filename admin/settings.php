@@ -86,7 +86,7 @@
 
              <!-- contact details section -->
 
-             <div class="card border-1 shadow-sm mb-3">
+            <div class="card border-1 shadow-sm mb-3">
               <div class="card-body">
                 <div class="d-flex align-items-center justify-content-between mb-3">
                   <h5 class="card-title m-0" >Contact Settings</h5>
@@ -147,75 +147,75 @@
             </div>
 
                 <!--Contact Detail Modal -->
-              <div class="modal fade" id="contacts-s" data-bs-backdrop="static" data-bs-keyboard="true" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                <div class="modal-dialog modal-lg">
-                  <form id="contacts_s_form">
-                    <div class="modal-content">
-                      <div class="modal-header">
-                        <h5 class="modal-title">Contact Settings</h5>
-                      </div>
-                      <div class="modal-body">
-                        <div class="container-fluid p-0">
-                          <div class="row">
-                            <div class="col-md-6">
-                              <div class="mb-3 ">
-                              <label class="form-label fw-bold">Address</label>
-                              <input type="text" name="address" id="address_inp" class="form-control shadow-none" required >
-                              </div>                
-                              <div class="mb-3 ">
-                              <label class="form-label fw-bold">Google Map Links</label>
-                              <input type="text" name="gmap" id="gmap_inp" class="form-control shadow-none" required >
-                              </div>                
-                              <div class="mb-3 ">
-                                <label class="form-label fw-bold">Phone Number (with country code)</label>
+            <div class="modal fade" id="contacts-s" data-bs-backdrop="static" data-bs-keyboard="true" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+              <div class="modal-dialog modal-lg">
+                <form id="contacts_s_form">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title">Contact Settings</h5>
+                    </div>
+                    <div class="modal-body">
+                      <div class="container-fluid p-0">
+                        <div class="row">
+                          <div class="col-md-6">
+                            <div class="mb-3 ">
+                            <label class="form-label fw-bold">Address</label>
+                            <input type="text" name="address" id="address_inp" class="form-control shadow-none" required >
+                            </div>                
+                            <div class="mb-3 ">
+                            <label class="form-label fw-bold">Google Map Links</label>
+                            <input type="text" name="gmap" id="gmap_inp" class="form-control shadow-none" required >
+                            </div>                
+                            <div class="mb-3 ">
+                              <label class="form-label fw-bold">Phone Number (with country code)</label>
+                              <div class="input-group mb-3">
+                                <span class="input-group-text"><i class="bi bi-telephone-fill"></i></span>
+                                <input type="text" name="pn1" id="pn1_inp" class="form-control shadow-none" required>
+                              </div>
+                              <div class="input-group mb-3">
+                                <span class="input-group-text"><i class="bi bi-telephone-fill"></i></span>
+                                <input type="text" name="pn2" id="pn2_inp" class="form-control shadow-none">
+                              </div>
+                            </div>     
+                            <div class="mb-3 ">
+                            <label class="form-label fw-bold">E-mail</label>
+                            <input type="email" name="email" id="email_inp" class="form-control shadow-none" required >
+                            </div>              
+                          </div>
+                          <div class="col-md-6">
+                            <div class="mb-3 ">
+                              <label class="form-label fw-bold">Social Links</label>
                                 <div class="input-group mb-3">
-                                  <span class="input-group-text"><i class="bi bi-telephone-fill"></i></span>
-                                  <input type="text" name="pn1" id="pn1_inp" class="form-control shadow-none" required>
+                                  <span class="input-group-text"><i class="bi bi-facebook"></i></span>
+                                  <input type="text" name="fb" id="fb_inp" class="form-control shadow-none" required>
                                 </div>
                                 <div class="input-group mb-3">
-                                  <span class="input-group-text"><i class="bi bi-telephone-fill"></i></span>
-                                  <input type="text" name="pn2" id="pn2_inp" class="form-control shadow-none">
+                                  <span class="input-group-text"><i class="bi bi-instagram"></i></span>
+                                  <input type="text" name="insta" id="insta_inp" class="form-control shadow-none" required>
                                 </div>
-                              </div>     
-                              <div class="mb-3 ">
-                              <label class="form-label fw-bold">E-mail</label>
-                              <input type="email" name="email" id="email_inp" class="form-control shadow-none" required >
-                              </div>              
-                            </div>
-                            <div class="col-md-6">
-                              <div class="mb-3 ">
-                                <label class="form-label fw-bold">Social Links</label>
-                                  <div class="input-group mb-3">
-                                    <span class="input-group-text"><i class="bi bi-facebook"></i></span>
-                                    <input type="text" name="fb" id="fb_inp" class="form-control shadow-none" required>
-                                  </div>
-                                  <div class="input-group mb-3">
-                                    <span class="input-group-text"><i class="bi bi-instagram"></i></span>
-                                    <input type="text" name="insta" id="insta_inp" class="form-control shadow-none" required>
-                                  </div>
-                                  <div class="input-group mb-3">
-                                    <span class="input-group-text"><i class="bi bi-twitter"></i></i></span>
-                                    <input type="text" name="tw" id="tw_inp" class="form-control shadow-none">
-                                  </div>
-                              </div>  
-                              <div class="mb-3 ">
-                                <label class="form-label fw-bold">iframe Src</label>
-                                <input type="text" name="iframe" id="iframe_inp" class="form-control shadow-none" required >
-                              </div>  
-                            </div>
+                                <div class="input-group mb-3">
+                                  <span class="input-group-text"><i class="bi bi-twitter"></i></i></span>
+                                  <input type="text" name="tw" id="tw_inp" class="form-control shadow-none">
+                                </div>
+                            </div>  
+                            <div class="mb-3 ">
+                              <label class="form-label fw-bold">iframe Src</label>
+                              <input type="text" name="iframe" id="iframe_inp" class="form-control shadow-none" required >
+                            </div>  
                           </div>
                         </div>
                       </div>
-                      <div class="modal-footer">
-                        <button type="button" onclick="contacts_inp(contacts_data)" class="btn text-secondary shadow-none" data-bs-dismiss="modal" >CANCEL</button>
-                        <button type="submit" class="btn custom-bg text-white shadow-none">SUBMIT</button>
-                      </div>
                     </div>
-                  </form>
-                </div>
+                    <div class="modal-footer">
+                      <button type="button" onclick="contacts_inp(contacts_data)" class="btn text-secondary shadow-none" data-bs-dismiss="modal" >CANCEL</button>
+                      <button type="submit" class="btn custom-bg text-white shadow-none">SUBMIT</button>
+                    </div>
+                  </div>
+                </form>
               </div>
+            </div>
 
-                 <!-- Management Team section -->
+               <!-- Management Team section -->
             <div class="card border-1 shadow-sm mb-3">
               <div class="card-body">
                 <div class="d-flex align-items-center justify-content-between mb-3">
@@ -227,14 +227,16 @@
                 </div>
 
                 <div class="row" id="team-data">
+
                 </div>
               </div>
             </div>
 
             <!--Management Team Modal -->
+
             <div class="modal fade" id="team-s" data-bs-backdrop="static" data-bs-keyboard="true" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
               <div class="modal-dialog">
-                <form id="team_s_form">
+                <form id="team_s_form" enctype="multipart/form-data" >
                   <div class="modal-content">
                     <div class="modal-header">
                       <h5 class="modal-title">Add Team Member</h5>
@@ -253,17 +255,13 @@
                     </div>
                     <div class="modal-footer">
                       <button type="button" onclick="" class="btn text-secondary shadow-none" data-bs-dismiss="modal" >CANCEL</button>
-                      <button type="submit" class="btn custom-bg text-white shadow-none">SUBMIT</button>
+                      <button type="POST" class="btn custom-bg text-white shadow-none">SUBMIT</button>
                     </div>
                   </div>
                 </form>
               </div>
             </div>
 
-
-
-
-  
 
       </div>
     </div>
@@ -281,6 +279,10 @@
   let site_about_inp = document.getElementById('site_about_inp');
 
   let contacts_s_form = document.getElementById('contacts_s_form');
+
+  let team_s_form = document.getElementById('team_s_form');
+  let member_name_inp = document.getElementById('member_name_inp');
+  let member_picture_inp = document.getElementById('member_picture_inp');
 
   function get_general()
   {
@@ -449,34 +451,38 @@
   function add_member()
   {
     let data = new FormData();
-    data.append('name',member_name_inp.value);
-    data.append('picture',member_picture_inp.files[0]);
-    data.append('add_member','');
+      data.append('name',member_name_inp.value);
+      data.append('picture',member_picture_inp.files[0]);
+      data.append('add_member','');
 
-    let xhr = new XMLHttpRequest();
-    xhr.open("POST","ajax/settings_crud.php",true);
+      let xhr = new XMLHttpRequest();
+      xhr.open("POST","ajax/settings_crud.php",true);
+      // xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
 
-    xhr.onload = function(){
-      console.log(this.responseText);
-      // var myModal = document.getElementById('general-s');
-      // var modal = bootstrap.Modal.getInstance(myModal);
-      //  modal.hide();
-       
-      //  if(this.responseText == 1)
-      //  {
-      //   alert('success','Changes saved!');
-      //   get_general();
-      // }
-      //   else
-      //   {
-      //   alert('error','No Changes made!');
-      //   }
-    }
+      xhr.onload = function(){
+        console.log(this.responseText);
+        // var myModal = document.getElementById('general-s');
+        // var modal = bootstrap.Modal.getInstance(myModal);
+        // modal.hide();
+        
+        // if(this.responseText == 1)
+        // {
+        //   alert('success','Changes saved!');
+        //   get_general();
+        // }
+        //   else
+        //   {
+        //   alert('error','No Changes made!');
+        //   }
+        
+      };
 
-    xhr.send(data);
-
+    xhr.send('data');
   }
-    
+
+  //41.20
+  
+
   window.onload = function(){
     get_general();
     get_contacts();
