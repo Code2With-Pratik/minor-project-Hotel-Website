@@ -61,22 +61,24 @@
 
         $img_r = uploadImage($_FILES['picture'],ABOUT_FOLDER);
 
-        if($img_r === 'inv_img'){
+        if($img_r == 'inv_img'){
             echo $img_r;
         }
-        else if($img_r === 'inv_size'){
+        else if($img_r == 'inv_size'){
             echo $img_r;
         }
-        else if($img_r === 'upd_failed'){
+        else if($img_r == 'upd_failed'){
             echo $img_r;
         }
         else{
-            $q = "INSERT INTO `team_details`(`name`, `picture`) VALUES (?, ?)";
+            $q = "INSERT INTO `team_details`(`name`, `picture`) VALUES (?,?)";
             $values = [$frm_data['name'],$img_r];
             $res = insert($q,$values,'ss');
             echo $res;
         }
     }
  
- 
+
+    
+
 ?>
