@@ -58,4 +58,5 @@ function uploadImage($image,$folder)
   }
 }
 
+
 ?>
