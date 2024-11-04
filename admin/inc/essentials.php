@@ -39,10 +39,10 @@ function uploadImage($image,$folder)
   $img_mime = $image('type');
 
   if(!in_array($img_mime,$valid_mime)){
-    return 'inv_img';  // invalid image or format
+    return 'inv_img';      // invalid image or format
   }
   else if(($image['size']/(1024*1024))>2){  // convert images size from bites to Megabytes
-    return 'inv_size';  // invalid size greater than 2 mb
+    return 'inv_size';     // invalid size greater than 2 mb
   }
   else{
     $ext = pathinfo($image['name'],PATHINFO_EXTENSION);
