@@ -474,7 +474,7 @@
           alert('error','Image upload failed. Server Down!');
         }
         else{
-          alert('success','New Member added');
+          alert('success','New Member added!');
           member_name_inp.value='';
           member_picture_inp.value='';
         }
@@ -482,7 +482,7 @@
 
     xhr.send('data');
   }
-  
+
   
 
   window.onload = function(){
