@@ -59,4 +59,10 @@
   #main-content{
     margin-top: 60px;
   }
+  #team-data{
+    display: flex;
+    height: 500px;
+    width: 300px;
+    padding: 20px 11px;
+  }
 }
