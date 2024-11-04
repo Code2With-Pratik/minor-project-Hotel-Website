@@ -460,8 +460,7 @@
       // xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
 
       xhr.onload = function(){
-        console.log(this.responseText);
-        var myModal = document.getElementById('general-s');
+        var myModal = document.getElementById('team-s');
         var modal = bootstrap.Modal.getInstance(myModal);
         modal.hide();
         
