@@ -235,7 +235,7 @@
                          <i class="bi bi-trash"></i> Delete
                         </button>
                       </div>
-                      <p class="card-text text-center px-3 py-2">Random Name</p>
+                      <p class="card-text text-center px-3 py-2">Member 1</p>
                     </div>
                   </div>
                 </div>
@@ -264,7 +264,7 @@
                       
                     </div>
                     <div class="modal-footer">
-                      <button type="button" onclick="" class="btn text-secondary shadow-none" data-bs-dismiss="modal" >CANCEL</button>
+                      <button type="button" onclick="member_name.value='' ,member_picture.value=''" class="btn text-secondary shadow-none" data-bs-dismiss="modal" >CANCEL</button>
                       <button type="submit" class="btn custom-bg text-white shadow-none">SUBMIT</button>
                     </div>
                   </div>
@@ -487,8 +487,9 @@
           alert('success','New Member added!');
           member_name_inp.value='';
           member_picture_inp.value='';
+          get_members();
         }
-      };
+      }
 
     xhr.send('data');
   }
@@ -510,7 +511,7 @@
   window.onload = function(){
     get_general();
     get_contacts();
-    get_members();
+    // get_members();
   }
 
 </script>
