@@ -170,11 +170,11 @@
                               <label class="form-label fw-bold">Phone Number (with country code)</label>
                               <div class="input-group mb-3">
                                 <span class="input-group-text"><i class="bi bi-telephone-fill"></i></span>
-                                <input type="text" name="pn1" id="pn1_inp" class="form-control shadow-none" required>
+                                <input type="number" name="pn1" id="pn1_inp" class="form-control shadow-none" required>
                               </div>
                               <div class="input-group mb-3">
                                 <span class="input-group-text"><i class="bi bi-telephone-fill"></i></span>
-                                <input type="text" name="pn2" id="pn2_inp" class="form-control shadow-none">
+                                <input type="number" name="pn2" id="pn2_inp" class="form-control shadow-none">
                               </div>
                             </div>     
                             <div class="mb-3 ">
