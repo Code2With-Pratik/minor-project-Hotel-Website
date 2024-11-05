@@ -102,10 +102,6 @@
         <img src="images/about/team.jpg" class="w-100">
         <h5 class="mt-2">Random Name</h5>
       </div>
-      <div class="swiper-slide bg-white text-center overflow-hidden rounded">
-        <img src="images/about/team.jpg" class="w-100">
-        <h5 class="mt-2">Random Name</h5>
-      </div>
     </div>
     <div class="swiper-pagination"></div>
   </div>
