@@ -27,12 +27,6 @@
   </p>
 </div>
 
-<?php
-   $contact_q = "SELECT * FROM `contact_details` WHERE `sr_no`=?";
-   $values = [1];
-   $contact_r = mysqli_fetch_assoc(select($contact_q,$values, 'i'));
-?>
-
 <div class="container">
   <div class="row">
 <div class="col-lg-6 col-md-6 mb-5 px-4">
