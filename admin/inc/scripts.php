@@ -26,9 +26,9 @@
         if(document.location.href.indexOf(file_name) >= 0){
         a_tags[i].classList.add('active');
         }
-
-
-    }
+        
+      }
+    
     }
     setActive();
 
