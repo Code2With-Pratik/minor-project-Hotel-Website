@@ -64,3 +64,33 @@
         </div>
       </div>
    </nav>
+        
+           <!-- login form -->
+
+ <div class="modal fade" id="loginModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <form>
+      <div class="modal-header">
+        <h1 class="modal-title fs-4 d-flex"><i class="bi bi-person-circle fs-3 me-2"></i>User Login</h1>
+        <button type="reset" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="mb-3">
+            <label class="form-label">Email address</label>
+            <input type="email" class="form-control shadow-none">
+        </div>
+        <div class="mb-4">
+            <label class="form-label">Password</label>
+            <input type="password" class="form-control shadow-none">
+        </div>
+        <div class="d-flex align-item-center justify-content-between">
+          <button type="submit" class="btn btn-dark shadow-none">LOGIN</button>
+          <a href="javascript: void(0)" class="text-secondary text-decoration-none">Forgot Password?</a>
+        </div>
+      </div>
+     
+      </form>
+    </div>
+  </div>
+</div>
