@@ -440,38 +440,50 @@
 <div class="container">
   <div class="row">
     <div class="col-lg-8 col-md-8 p-4 mb-lg-0 mb-3 bg-white rounded">
-    <iframe class="w-100 rounded" height="320px" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d119037.49550084474!2d81.338075!3d21.19526785!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a293cccec49ed45%3A0x2b3ff3bd73c91877!2sBhilai%2C%20Chhattisgarh!5e0!3m2!1sen!2sin!4v1729050881199!5m2!1sen!2sin" loading="lazy"></iframe>
+     <iframe class="w-100 rounded" height="320px" src="<?php echo $contact_r['iframe'] ?>" loading="lazy"></iframe>
     </div>
     <div class="col-lg-4 col-md-4">
-  <div class="bg-white p-5">
-    
-    <!-- Call Us Section -->
-    <h5>Call Us</h5>
-    <a href="tel:+919876543210" class="d-inline-block mb-2 text-decoration-none text-dark">
-      <i class="bi bi-telephone-fill"></i> +91 9876543210
-    </a>
-    <br>
-    <a href="tel:+919876543210" class="d-inline-block text-decoration-none text-dark">
-      <i class="bi bi-telephone-fill"></i> +91 9876543210
-    </a>
+      <div class="bg-white p-5 rounded mb-4">
+      
+      <!-- Call Us Section -->
+        <h5>Call Us</h5>
+        <a href="tel:+<?php echo $contact_r['pn1'] ?>" class="d-inline-block mb-2 text-decoration-none text-dark">
+          <i class="bi bi-telephone-fill"></i> +<?php echo $contact_r['pn1'] ?>
+        </a>
+        <br>
+      <?php
+        if($contact_r['pn2']!=''){
+          echo<<<data
+            <a href="tel: +$contact_r[pn2]" class="d-inline-block text-decoration-none text-dark">
+              <i class="bi bi-telephone-fill"></i> +$contact_r[pn2]
+            </a>
+            data;
+        }
+      ?>
 
-    <!-- Follow Us Section -->
-    <h5 class="mt-4">Follow Us</h5>
-    <a href="#" class="d-inline-block mb-3">
-      <span class="badge bg-light text-dark fs-6">
-      <i class="bi bi-twitter"></i>  Twitter</span>
-    </a>
-    <br>
-    <a href="#" class="d-inline-block mb-3">
-      <span class="badge bg-light text-dark fs-6">
-      <i class="bi bi-instagram"></i>  Instagram</span>
-    </a>
-    <br>
-    <a href="#" class="d-inline-block mb-3">
-      <span class="badge bg-light text-dark fs-6">
-      <i class="bi bi-facebook"></i>  facebook</span>
-    </a>
-  </div>
+      <!-- Follow Us Section -->
+      <h5 class="mt-4">Follow Us</h5>
+      <?php
+      if($contact_r['tw']!=''){
+        echo<<<data
+        <a href="$contact_r[tw]" class="d-inline-block mb-3">
+          <span class="badge bg-light text-dark fs-6">
+          <i class="bi bi-twitter"></i>  Twitter</span>
+        </a>
+        <br>
+        data;
+      }
+      ?>
+      <a href="<?php echo $contact_r['insta'] ?>" class="d-inline-block mb-3">
+        <span class="badge bg-light text-dark fs-6">
+        <i class="bi bi-instagram"></i>  Instagram</span>
+      </a>
+      <br>
+      <a href="<?php echo $contact_r['fb'] ?>" class="d-inline-block mb-3">
+        <span class="badge bg-light text-dark fs-6">
+        <i class="bi bi-facebook"></i>  facebook</span>
+      </a>
+    </div>
   </div>
   </div>
 </div>
