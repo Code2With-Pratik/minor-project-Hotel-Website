@@ -17,14 +17,20 @@
     </div>
     <div class="col-lg-4 p-4">
         <h5 class="mb-3">Follow Us</h5>
-        <a href="#" class="d-inline-block text-dark text-decoration-none mb-2">
-          <i class="bi bi-twitter me-1">Twitter</i>
+        <?php 
+          if($contact_r['tw']!=''){
+            echo<<<data
+              <a href="$contact_r[tw]" class="d-inline-block text-dark text-decoration-none mb-2">
+                <i class="bi bi-twitter me-1"></i>Twitter
+              </a><br>
+            data;
+          }
+        ?>
+        <a href="<?php echo $contact_r['insta'] ?>" class="d-inline-block text-dark text-decoration-none mb-2">
+          <i class="bi bi-instagram me-1"> Instagram</i>
         </a><br>
-        <a href="#" class="d-inline-block text-dark text-decoration-none mb-2">
-          <i class="bi bi-instagram me-1">Instagram</i>
-        </a><br>
-        <a href="#" class="d-inline-block text-dark text-decoration-none">
-          <i class="bi bi-facebook me-1">Facebook</i>
+        <a href="<?php echo $contact_r['fb']?>" class="d-inline-block text-dark text-decoration-none">
+          <i class="bi bi-facebook me-1"> Facebook</i>
         </a><br>
       </div>
    </div>
