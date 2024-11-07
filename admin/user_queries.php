@@ -22,10 +22,29 @@
       <div class="col-lg-10 ms-auto p-4 over-hidden">
             <h3 class="mb-4 " >USER QUERIES</h3>
 
-               <!-- Carousel section -->
-            <div class="card border-1 shadow-sm mb-3">
+               <!-- User queries section -->
+            <div class="card border-0 shadow-sm mb-4">
               <div class="card-body">
               
+                  <div class="table-responsive-md" style="height: 450px; overflow-y: scroll;">
+                      <table class="table table-hover border">
+                        <thead class="sticky-top">
+                          <tr>
+                            <th class="bg-dark text-light" scope="col">#</th>
+                            <th class="bg-dark text-light" width="10%" scope="col">Name</th>
+                            <th class="bg-dark text-light" scope="col">Email</th>
+                            <th class="bg-dark text-light" width="20%" scope="col">Subject</th>
+                            <th class="bg-dark text-light" width="30%" scope="col">Message</th>
+                            <th class="bg-dark text-light" scope="col">Date</th>
+                            <th class="bg-dark text-light" width="15%" scope="col">Action</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                         
+                        </tbody>
+                      </table>
+                  </div>
+
               </div>
             </div>
 
