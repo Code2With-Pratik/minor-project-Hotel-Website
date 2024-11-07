@@ -9,7 +9,7 @@
 ?>
 
           <!-- nav bar -->
-   <nav id="nav-bar" class="navbar navbar-expand-lg bg-body-tertiary bg-white pg-lg-3 py-lg-2 shadow-sm sticky-top">
+    <nav id="nav-bar" class="navbar navbar-expand-lg bg-body-tertiary bg-white pg-lg-3 py-lg-2 shadow-sm sticky-top">
       <div class="container-fluid">
         <a class="navbar-brand me-5 fw-bold fs-3 h-font" href="index.php"
           >Hotel</a
@@ -63,8 +63,8 @@
           </div>
         </div>
       </div>
-   </nav>
-        
+    </nav>
+     
            <!-- login form -->
 
  <div class="modal fade" id="loginModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
