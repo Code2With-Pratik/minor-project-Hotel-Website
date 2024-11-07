@@ -2,6 +2,25 @@
   require('inc/essentials.php');
   require('inc/db_config.php');
   adminLogin();
+
+  if(isset($_GET['seen']))
+  {
+    $frm_data = filteration($_GET);
+
+    if($frm_data['seen']=='all'){
+
+    }
+    else{
+      $q = "UPDATE `user_queries` SET `seen`=? WHERE `sr_no`=?";
+      $values = [1,$frm_data['seen']];
+      if(update($q,$values,'ii')){
+        alert('success','Marked as read!');
+      }
+      else{
+        alert('error','Operation Failed!');
+      }
+    }
+  }
 ?>
 
 <!DOCTYPE html>
@@ -40,7 +59,7 @@
                           </tr>
                         </thead>
                         <tbody>
-                        <?php 
+                          <?php 
                             $q = "SELECT * FROM `user_queries` ORDER BY `sr_no` DESC";
                             $data = mysqli_query($con,$q);
                             $i=1;
