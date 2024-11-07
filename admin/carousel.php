@@ -33,15 +33,54 @@
                 </div>
 
                 <div class="row" id="carousel-data">
-                  <div class="col-md-2 mb-3">
-                    <div class="card bg-dark text-white">
-                      <img src="../images/about/team.jpg" class="card-img">
+                  <div class="col-md-5 mb-3 ">
+                    <div class="card bg-light border-none shadow text-white p-2">
+                      <img src="../images/carousel/1.png" class="card-img">
                       <div class="card-img-overlay text-end">
                         <button type="button" class="btn btn-danger btn-sm shadow-none">
                          <i class="bi bi-trash"></i> Delete
                         </button>
                       </div>
-                      <p class="card-text text-center px-3 py-2">Member 1</p>
+                    </div>
+                    <div class="card bg-light border-none shadow text-white p-2">
+                      <img src="../images/carousel/2.png" class="card-img">
+                      <div class="card-img-overlay text-end">
+                        <button type="button" class="btn btn-danger btn-sm shadow-none">
+                         <i class="bi bi-trash"></i> Delete
+                        </button>
+                      </div>
+                    </div>
+                    <div class="card bg-light border-none shadow text-white p-2">
+                      <img src="../images/carousel/3.png" class="card-img">
+                      <div class="card-img-overlay text-end">
+                        <button type="button" class="btn btn-danger btn-sm shadow-none">
+                         <i class="bi bi-trash"></i> Delete
+                        </button>
+                      </div>
+                    </div>
+                    <div class="card bg-light border-none shadow text-white p-2">
+                      <img src="../images/carousel/4.png" class="card-img">
+                      <div class="card-img-overlay text-end">
+                        <button type="button" class="btn btn-danger btn-sm shadow-none">
+                         <i class="bi bi-trash"></i> Delete
+                        </button>
+                      </div>
+                    </div>
+                    <div class="card bg-light border-none shadow text-white p-2">
+                      <img src="../images/carousel/5.png" class="card-img">
+                      <div class="card-img-overlay text-end">
+                        <button type="button" class="btn btn-danger btn-sm shadow-none">
+                         <i class="bi bi-trash"></i> Delete
+                        </button>
+                      </div>
+                    </div>
+                    <div class="card bg-light border-none shadow text-white p-2">
+                      <img src="../images/carousel/6.png" class="card-img">
+                      <div class="card-img-overlay text-end">
+                        <button type="button" class="btn btn-danger btn-sm shadow-none">
+                         <i class="bi bi-trash"></i> Delete
+                        </button>
+                      </div>
                     </div>
                   </div>
                 </div>
