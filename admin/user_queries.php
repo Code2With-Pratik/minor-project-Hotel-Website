@@ -3,6 +3,7 @@
   require('inc/db_config.php');
   adminLogin();
 
+        // for marked as read button 
   if(isset($_GET['seen']))
   {
     $frm_data = filteration($_GET);
@@ -15,6 +16,26 @@
       $values = [1,$frm_data['seen']];
       if(update($q,$values,'ii')){
         alert('success','Marked as read!');
+      }
+      else{
+        alert('error','Operation Failed!');
+      }
+    }
+  }
+
+        // for delete button
+  if(isset($_GET['del']))
+  {
+    $frm_data = filteration($_GET);
+
+    if($frm_data['del']=='all'){
+
+    }
+    else{
+      $q = "DELETE FROM `user_queries` WHERE `sr_no`=?";
+      $values = [$frm_data['del']];
+      if(delete($q,$values,'i')){
+        alert('success','Data deleted!');
       }
       else{
         alert('error','Operation Failed!');
