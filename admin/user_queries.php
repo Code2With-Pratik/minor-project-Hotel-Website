@@ -40,7 +40,28 @@
                           </tr>
                         </thead>
                         <tbody>
-                         
+                        <?php 
+                            $q = "SELECT * FROM `user_queries` ORDER BY `sr_no` DESC";
+                            $data = mysqli_query($con,$q);
+                            $i=1;
+
+                            while($row = mysqli_fetch_assoc($data))
+                            {
+                              $seen='';
+                              echo<<<query
+                              <tr>
+                                <td>$i</td>
+                                <td>$row[name]</td>
+                                <td>$row[email]</td>
+                                <td>$row[subject]</td>
+                                <td>$row[message]</td>
+                                <td>$row[date]</td>
+                                <td>$seen</td>
+                              </tr>
+                              query;
+                              $i++;
+                            }
+                          ?>
                         </tbody>
                       </table>
                   </div>
