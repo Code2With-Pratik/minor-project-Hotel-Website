@@ -182,7 +182,6 @@
 
       let xhr = new XMLHttpRequest();
       xhr.open("POST","ajax/features_facilities.php",true);
-      // xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
 
       xhr.onload = function(){
         var myModal = document.getElementById('feature-s');
@@ -199,7 +198,7 @@
         }
       }
 
-    xhr.send('data');
+    xhr.send(data);
   }
   
 </script>
