@@ -171,8 +171,37 @@
 
   feature_s_form.addEventListener('submit',function(e){
     e.preventDefault();
-    add_member();
+    add_feature();
   });
+
+  function add_feature()
+  {
+    let data = new FormData();
+      data.append('name',feature_s_form.elements['feature_name'].value);
+      data.append('add_feature','');
+
+      let xhr = new XMLHttpRequest();
+      xhr.open("POST","ajax/features_facilities.php",true);
+      // xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+
+      xhr.onload = function(){
+        var myModal = document.getElementById('feature-s');
+        var modal = bootstrap.Modal.getInstance(myModal);
+        modal.hide();
+
+        if(this.responseText == 1){
+          alert('success','New Feature added!');
+          feature_s_form.elements['feature_name'].value='';  
+          // get_members();
+        }
+        else{
+          alert('error','Server Down!');
+        }
+      }
+
+    xhr.send('data');
+  }
+  
 </script>
 
 </body>
