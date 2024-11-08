@@ -225,6 +225,25 @@ function get_members()
   xhr.send('get_members');
 }
 
+function rem_member(val)
+{
+  let xhr = new XMLHttpRequest();
+  xhr.open("POST","ajax/settings_crud.php",true);
+  xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+
+  xhr.onload = function(){
+    if(this.responseText==1){
+      alert('success','Member removed!');
+      get_members();
+    }
+    else{
+      alert('error','Server down!');
+    }
+  }
+
+  xhr.send('rem_member='+val);
+}
+
 
 window.onload = function(){
   get_general();
