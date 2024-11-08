@@ -69,6 +69,7 @@
 
 <?php require('inc/header.php'); ?>
 
+               <!-- features  section -->
 
  <div class="container-fluid" id="main-content" >
    <div class="row">
@@ -88,46 +89,17 @@
                   </div>
 
               
-                  <div class="table-responsive-md" style="height: 450px; overflow-y: scroll;">
+                  <div class="table-responsive-md" style="height: 350px; overflow-y: scroll;">
                       <table class="table table-hover border">
                         <thead class="sticky-top">
                           <tr>
                             <th class="bg-dark text-light" scope="col">#</th>
                             <th class="bg-dark text-light" width="10%" scope="col">Name</th>
-                            <th class="bg-dark text-light  scope="col">Email</th>
-                            <th class="bg-dark text-light" width="20%" scope="col">Subject</th>
-                            <th class="bg-dark text-light" width="30%" scope="col">Message</th>
-                            <th class="bg-dark text-light" width="20%" scope="col">Date</th>
                             <th class="bg-dark text-light" width="25%" scope="col">Action</th>
                           </tr>
                         </thead>
-                        <tbody>
-                          <?php 
-                            $q = "SELECT * FROM `user_queries` ORDER BY `sr_no` DESC";
-                            $data = mysqli_query($con,$q);
-                            $i=1;
+                        <tbody id="features-data">
 
-                            while($row = mysqli_fetch_assoc($data))
-                            {
-                              $seen='';
-                              if($row['seen']!=1){
-                                $seen = "<a href='?seen=$row[sr_no]' class='btn btn-sm rounded-pill btn-primary'>Marked as read</a> <br>";
-                              }
-                              $seen.="<a href='?del=$row[sr_no]' class='btn btn-sm rounded-pill btn-danger mt-2'>Delete</a>";
-                              echo<<<query
-                              <tr>
-                                <td>$i</td>
-                                <td>$row[name]</td>
-                                <td>$row[email]</td>
-                                <td>$row[subject]</td>
-                                <td>$row[message]</td>
-                                <td>$row[date]</td>
-                                <td>$seen</td>
-                              </tr>
-                              query;
-                              $i++;
-                            }
-                          ?>
                         </tbody>
                       </table>
                   </div>
@@ -191,7 +163,7 @@
         if(this.responseText == 1){
           alert('success','New Feature added!');
           feature_s_form.elements['feature_name'].value='';  
-          // get_members();
+          get_features();
         }
         else{
           alert('error','Server Down!');
@@ -199,6 +171,23 @@
       }
 
     xhr.send(data);
+  }
+
+  function get_features()
+  {
+    let xhr = new XMLHttpRequest();
+    xhr.open("POST","ajax/features_facilities.php",true);
+    xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+
+    xhr.onload = function(){
+     document.getElementById('features-data').innerHTML = this.responseText;
+    }
+
+    xhr.send('get_features');
+  }
+
+  window.onload = function(){
+    get_features();
   }
   
 </script>
