@@ -166,5 +166,14 @@
 
 <?php require('inc/scripts.php'); ?> 
 
+<script>
+  let feature_s_form = document.getElementById('feature_s_form');
+
+  feature_s_form.addEventListener('submit',function(e){
+    e.preventDefault();
+    add_member();
+  });
+</script>
+
 </body>
 </html>
