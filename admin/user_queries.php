@@ -9,7 +9,14 @@
     $frm_data = filteration($_GET);
 
     if($frm_data['seen']=='all'){
-
+      $q = "UPDATE `user_queries` SET `seen`=?";
+      $values = [1];
+      if(update($q,$values,'i')){
+        alert('success','Marked all as read!');
+      }
+      else{
+        alert('error','Operation Failed!');
+      }
     }
     else{
       $q = "UPDATE `user_queries` SET `seen`=? WHERE `sr_no`=?";
@@ -29,7 +36,13 @@
     $frm_data = filteration($_GET);
 
     if($frm_data['del']=='all'){
-
+      $q = "DELETE FROM `user_queries`";
+      if(mysqli_query($con,$q)){
+        alert('success','All data deleted!');
+      }
+      else{
+        alert('error','Operation Failed!');
+      }
     }
     else{
       $q = "DELETE FROM `user_queries` WHERE `sr_no`=?";
@@ -65,6 +78,13 @@
                <!-- User queries section -->
             <div class="card border-0 shadow-sm mb-4">
               <div class="card-body">
+
+              <div class="text-end mb-4">
+                <a href="?seen=all" class="btn btn-dark rounded-pill shadow-none btn-sm" >
+                <i class="bi bi-check2-all"></i>  Mark all read</a>
+                <a href="?del=all" class="btn btn-danger rounded-pill shadow-none btn-sm" >
+                <i class="bi bi-trash"></i>  Delete all</a>
+              </div>
               
                   <div class="table-responsive-md" style="height: 450px; overflow-y: scroll;">
                       <table class="table table-hover border">
@@ -72,11 +92,11 @@
                           <tr>
                             <th class="bg-dark text-light" scope="col">#</th>
                             <th class="bg-dark text-light" width="10%" scope="col">Name</th>
-                            <th class="bg-dark text-light" scope="col">Email</th>
+                            <th class="bg-dark text-light  scope="col">Email</th>
                             <th class="bg-dark text-light" width="20%" scope="col">Subject</th>
                             <th class="bg-dark text-light" width="30%" scope="col">Message</th>
-                            <th class="bg-dark text-light" scope="col">Date</th>
-                            <th class="bg-dark text-light" width="15%" scope="col">Action</th>
+                            <th class="bg-dark text-light" width="20%" scope="col">Date</th>
+                            <th class="bg-dark text-light" width="25%" scope="col">Action</th>
                           </tr>
                         </thead>
                         <tbody>
@@ -89,7 +109,7 @@
                             {
                               $seen='';
                               if($row['seen']!=1){
-                                $seen = "<a href='?seen=$row[sr_no]' class='btn btn-sm rounded-pill btn-primary'>Marked as read</a>";
+                                $seen = "<a href='?seen=$row[sr_no]' class='btn btn-sm rounded-pill btn-primary'>Marked as read</a> <br>";
                               }
                               $seen.="<a href='?del=$row[sr_no]' class='btn btn-sm rounded-pill btn-danger mt-2'>Delete</a>";
                               echo<<<query
