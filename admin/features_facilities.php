@@ -79,12 +79,6 @@
             <div class="card border-0 shadow-sm mb-4">
               <div class="card-body">
 
-              <div class="text-end mb-4">
-                <a href="?seen=all" class="btn btn-dark rounded-pill shadow-none btn-sm" >
-                <i class="bi bi-check2-all"></i>  Mark all read</a>
-                <a href="?del=all" class="btn btn-danger rounded-pill shadow-none btn-sm" >
-                <i class="bi bi-trash"></i>  Delete all</a>
-              </div>
               
                   <div class="table-responsive-md" style="height: 450px; overflow-y: scroll;">
                       <table class="table table-hover border">
