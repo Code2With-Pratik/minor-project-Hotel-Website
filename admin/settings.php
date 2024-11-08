@@ -278,7 +278,6 @@
 </div>
  
 
-
 <?php require('inc/scripts.php'); ?> 
 <script src="scripts/settings.js"></script>
 </body>
