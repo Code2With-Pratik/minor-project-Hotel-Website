@@ -24,7 +24,7 @@
 
  function selectAll($table)
  {
-   $con = $GLOBALS('con');
+   $con = $GLOBALS['con'];
    $res = mysqli_query($con,"SELECT * FROM $table");
    return $res;
  }
