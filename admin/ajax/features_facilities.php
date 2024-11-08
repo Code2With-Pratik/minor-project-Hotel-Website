@@ -5,27 +5,14 @@
     adminLogin();
 
 
-    if(isset($_POST['add_member']))
+    if(isset($_POST['add_feature']))
     {
         $frm_data = filteration($_POST);
 
-        $img_r = uploadImage($_FILES['picture'],ABOUT_FOLDER);
-
-        if($img_r == 'inv_img'){
-            echo $img_r;
-        }
-        else if($img_r == 'inv_size'){
-            echo $img_r;
-        }
-        else if($img_r == 'upd_failed'){
-            echo $img_r;
-        }
-        else{
-            $q = "INSERT INTO `team_details`(`name`, `picture`) VALUES (?,?)";
-            $values = [$frm_data['name'],$img_r];
-            $res = insert($q,$values,'ss');
-            echo $res;
-        }
+        $q = "INSERT INTO `features`(`name`) VALUES (?)";
+        $values = [$frm_data['name']];
+        $res = insert($q,$values,'s');
+        echo $res;
     }
  
     if(isset($_POST['get_members']))
