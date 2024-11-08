@@ -37,24 +37,14 @@
         }
     }
 
-    if(isset($_POST['rem_member']))
+    if(isset($_POST['rem_feature']))
     {
         $frm_data = filteration($_POST);
-        $values = [$frm_data['rem_member']];
-
-        $pre_q = "SELECT * FROM `team_details` WHERE `sr_no`=?";
-        $res = select($pre_q,$values,'i');
-        $img = mysqli_fetch_assoc($res);
-
-        if(deleteImage($img['picture'],ABOUT_FOLDER)){
-            $q = "DELETE FROM `team_details` WHERE `sr_no`=?";
-            $res = delete($q,$values,'i'); 
-            echo $res;
-        }
-        else{
-            echo 0;
-        }
-
+        $values = [$frm_data['rem_feature']];
+        
+        $q = "DELETE FROM `features` WHERE `id`=?";
+        $res = delete($q,$values,'i'); 
+        echo $res;
     }
 
 ?>
