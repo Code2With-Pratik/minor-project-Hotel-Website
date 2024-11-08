@@ -79,6 +79,14 @@
             <div class="card border-0 shadow-sm mb-4">
               <div class="card-body">
 
+                  <div class="d-flex align-items-center justify-content-between mb-3">
+                    <h5 class="card-title m-0" >Features</h5>
+                    <!-- Button trigger modal -->
+                    <button type="button" class="btn btn-dark shadow-none btn-sm" data-bs-toggle="modal" data-bs-target="#feature-s">
+                    <i class="bi bi-plus-square"></i>Add
+                    </button>
+                  </div>
+
               
                   <div class="table-responsive-md" style="height: 450px; overflow-y: scroll;">
                       <table class="table table-hover border">
