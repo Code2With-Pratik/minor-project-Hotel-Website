@@ -43,6 +43,9 @@
   height: 100%;
   z-index: 1111;
 }
+.modal{
+  z-index: 1112;
+}
 /* width */
 ::-webkit-scrollbar {
   width: 10px;
