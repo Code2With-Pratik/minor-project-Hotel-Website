@@ -54,7 +54,7 @@
         $values = [$frm_data['rem_image']];
 
         $pre_1q = "SELECT * FROM `carousel` WHERE `sr_no`=?";
-        $res = select($pre_q,$values,'i');
+        $res = select($pre_1q,$values,'i');
         $img = mysqli_fetch_assoc($res);
 
         if(deleteImage($img['image'],CAROUSEL_FOLDER)){
