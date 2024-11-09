@@ -51,10 +51,7 @@
   </div>
 </div>
 
-
-
  <?php require('inc/footer.php');?>
-
   
   </body>
 </html>
