@@ -16,7 +16,7 @@
              }
 
  /* Firefox */
-   input[type=number] {
+   input[type="number"] {
            -moz-appearance: textfield;
            }
 
@@ -37,6 +37,7 @@
   position: fixed;
   top: 80px;
   right: 25px;
+  z-index: 1110;
 }
 #dashboard-menu{
   position: fixed;

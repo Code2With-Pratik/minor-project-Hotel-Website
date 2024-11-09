@@ -1,115 +1,108 @@
 <?php
 
- $hname = 'localhost';
- $uname = 'root';
- $pass = '';
- $db = 'hotelwebsite';
+$hname = 'localhost';
+$uname = 'root';
+$pass = '';
+$db = 'hotelwebsite';
 
- $con = mysqli_connect($hname,$uname,$pass,$db);
+$con = mysqli_connect($hname, $uname, $pass, $db);
 
- if(!$con){
-    die("Cannot Connect to Database" .mysqli_connect_errno());
- }
+if (!$con) {
+    die("Cannot connect to database: " . mysqli_connect_error());
+}
 
- function filteration($data){
-    foreach($data as $key => $value){
-       $value = trim($value);
-       $value = stripslashes($value);
-       $value = strip_tags($value);
-       $value = htmlspecialchars($value);
-       $data[$key] = $value;
+function filteration($data) {
+    foreach ($data as $key => $value) {
+        $value = trim($value);
+        $value = stripslashes($value);
+        $value = strip_tags($value);
+        $value = htmlspecialchars($value);
+        $data[$key] = $value;
     }
-       return $data;
- }
+    return $data;
+}
 
- function selectAll($table)
- {
-   $con = $GLOBALS['con'];
-   $res = mysqli_query($con,"SELECT * FROM $table");
-   return $res;
- }
-
- function select($sql,$values,$datatypes)
- {
+function selectAll($table) {
     $con = $GLOBALS['con'];
-    if($stmt = mysqli_prepare($con,$sql))
-    {
-       mysqli_stmt_bind_param($stmt,$datatypes,...$values); 
-       if(mysqli_stmt_execute($stmt)){
-         $res = mysqli_stmt_get_result($stmt);
-         mysqli_stmt_close($stmt);
-         return $res;
-       }
-       else{
-        mysqli_stmt_close($stmt);
-        die("Query cannot be executed - Select");
-       }
+    $res = mysqli_query($con, "SELECT * FROM `$table`");
+    if (!$res) {
+        die("Query cannot be executed: " . mysqli_error($con));
     }
-    else{
-        die("Query cannot be prepared - Select");
-    }
- }
+    return $res;
+}
 
- function update($sql,$values,$datatypes)
- {
+function select($sql, $values, $datatypes) {
     $con = $GLOBALS['con'];
-    if($stmt = mysqli_prepare($con,$sql))
-    {
-       mysqli_stmt_bind_param($stmt,$datatypes,...$values); 
-       if(mysqli_stmt_execute($stmt)){
-         $res = mysqli_stmt_affected_rows($stmt);
-         mysqli_stmt_close($stmt);
-         return $res;
-       }
-       else{
-        mysqli_stmt_close($stmt);
-        die("Query cannot be executed - Update");
-       }
+    if ($stmt = mysqli_prepare($con, $sql)) {
+        mysqli_stmt_bind_param($stmt, $datatypes, ...$values);
+        if (mysqli_stmt_execute($stmt)) {
+            $res = mysqli_stmt_get_result($stmt);
+            mysqli_stmt_close($stmt);
+            return $res;
+        } else {
+            mysqli_stmt_close($stmt);
+            die("Query cannot be executed - Select: " . mysqli_error($con));
+        }
+    } else {
+        die("Query cannot be prepared - Select: " . mysqli_error($con));
     }
-    else{
-        die("Query cannot be prepared - Update");
-    }
- }
- 
- function insert($sql,$values,$datatypes)
- {
+}
+
+function update($sql, $values, $datatypes) {
     $con = $GLOBALS['con'];
-    if($stmt = mysqli_prepare($con,$sql))
-    {
-       mysqli_stmt_bind_param($stmt,$datatypes,...$values); 
-       if(mysqli_stmt_execute($stmt)){
-         $res = mysqli_stmt_affected_rows($stmt);
-         mysqli_stmt_close($stmt);
-         return $res;
-       }
-       else{  
-        mysqli_stmt_close($stmt);
-        die("Query cannot be executed - Insert");
-       }
+    if ($stmt = mysqli_prepare($con, $sql)) {
+        mysqli_stmt_bind_param($stmt, $datatypes, ...$values);
+        if (mysqli_stmt_execute($stmt)) {
+            $res = mysqli_stmt_affected_rows($stmt);
+            mysqli_stmt_close($stmt);
+            return $res;
+        } else {
+            mysqli_stmt_close($stmt);
+            die("Query cannot be executed - Update: " . mysqli_error($con));
+        }
+    } else {
+        die("Query cannot be prepared - Update: " . mysqli_error($con));
     }
-    else{
-        die("Query cannot be prepared - Insert");
-    }
- }
- function delete($sql,$values,$datatypes)
- {
+}
+
+function insert($sql, $values, $datatypes) {
     $con = $GLOBALS['con'];
-    if($stmt = mysqli_prepare($con,$sql))
-    {
-       mysqli_stmt_bind_param($stmt,$datatypes,...$values); 
-       if(mysqli_stmt_execute($stmt)){
-         $res = mysqli_stmt_affected_rows($stmt);
-         mysqli_stmt_close($stmt);
-         return $res;
-       }
-       else{
-        mysqli_stmt_close($stmt);
-        die("Query cannot be executed - Delete");
-       }
+    if ($stmt = mysqli_prepare($con, $sql)) {
+        mysqli_stmt_bind_param($stmt, $datatypes, ...$values);
+        if (mysqli_stmt_execute($stmt)) {
+            $res = mysqli_stmt_affected_rows($stmt);
+            mysqli_stmt_close($stmt);
+            return $res;
+        } else {
+            mysqli_stmt_close($stmt);
+            die("Query cannot be executed - Insert: " . mysqli_error($con));
+        }
+    } else {
+        die("Query cannot be prepared - Insert: " . mysqli_error($con));
     }
-    else{
-        die("Query cannot be prepared - Delete");
+}
+
+function delete($sql, $values, $datatypes) {
+    $con = $GLOBALS['con'];
+    if ($stmt = mysqli_prepare($con, $sql)) {
+        mysqli_stmt_bind_param($stmt, $datatypes, ...$values);
+        if (mysqli_stmt_execute($stmt)) {
+            $res = mysqli_stmt_affected_rows($stmt);
+            mysqli_stmt_close($stmt);
+            return $res;
+        } else {
+            mysqli_stmt_close($stmt);
+            die("Query cannot be executed - Delete: " . mysqli_error($con));
+        }
+    } else {
+        die("Query cannot be prepared - Delete: " . mysqli_error($con));
     }
- }
- 
+}
+
+// Close the database connection when done
+function closeConnection() {
+    global $con;
+    mysqli_close($con);
+}
+
 ?>
