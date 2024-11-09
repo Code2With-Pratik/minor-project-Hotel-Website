@@ -47,4 +47,27 @@
         echo $res;
     }
 
+    if(isset($_POST['add_facility']))
+    {
+        $frm_data = filteration($_POST);
+
+        $img_r = uploadSVGImage($_FILES['icon'],FEATURES_FOLDER);
+
+        if($img_r == 'inv_img'){
+            echo $img_r;
+        }
+        else if($img_r == 'inv_size'){
+            echo $img_r;
+        }
+        else if($img_r == 'upd_failed'){
+            echo $img_r;
+        }
+        else{
+            $q = "INSERT INTO `facilities`(`icon`, `name`, `description`) VALUES (?,?,?)";
+            $values = [$img_r,$frm_data['name'],$frm_data['desc']];
+            $res = insert($q,$values,'sss');
+            echo $res;
+        }
+    }
+
 ?>
