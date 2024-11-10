@@ -149,7 +149,7 @@
 
 <?php require('inc/scripts.php'); ?> 
 
-
+<script src="scripts/features_facilities.php"></script>
 
 </body>
 </html>
