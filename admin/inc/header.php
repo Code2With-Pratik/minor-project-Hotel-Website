@@ -16,7 +16,9 @@
           </button>
           <div class="collapse navbar-collapse flex-column align-items-stretch mt-2" id="adminDropdown">
             <ul class="nav nav-pills flex-column">
-              
+            <li class="nav-item">
+                <a class="nav-link text-white" href="dashboard.php">Dashboard</a>
+              </li>
             </ul>
           </div>
         </div>
