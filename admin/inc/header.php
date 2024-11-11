@@ -19,6 +19,9 @@
             <li class="nav-item">
                 <a class="nav-link text-white" href="dashboard.php">Dashboard</a>
               </li>
+              <li class="nav-item">
+                <a class="nav-link text-white" href="rooms.php">Rooms</a>
+              </li>
             </ul>
           </div>
         </div>
