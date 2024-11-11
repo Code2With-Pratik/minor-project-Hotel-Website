@@ -78,7 +78,11 @@
             <div class="col-md-6 mb-3 ">
               <label class="form-label fw-bold">Area</label>
               <input type="number" min="1" name="area" class="form-control shadow-none" required >
-            </div>                                -->
+            </div>                
+            <!-- <div class="col-md-6 mb-3 ">
+              <label class="form-label fw-bold">Guests</label>
+              <input type="number" min="1" name="area" class="form-control shadow-none" required >
+            </div>                 -->
             <div class="col-md-6 mb-3 ">
               <label class="form-label fw-bold">Price</label>
               <input type="number" min="1" name="price" class="form-control shadow-none" required >
@@ -134,6 +138,7 @@
             <div class="col-12 mb-3">
               <label class="form-label fw-bold">Description</label>
               <textarea name="desc" rows="4" class="form-control shadow-none" required></textarea>
+
             </div>               
           </div>
         </div>
