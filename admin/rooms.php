@@ -134,7 +134,6 @@
             <div class="col-12 mb-3">
               <label class="form-label fw-bold">Description</label>
               <textarea name="desc" rows="4" class="form-control shadow-none" required></textarea>
-
             </div>               
           </div>
         </div>
