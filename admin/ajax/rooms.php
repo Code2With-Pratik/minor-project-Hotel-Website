@@ -56,6 +56,41 @@
         }
     }
 
+    if (isset($_POST['get_all_rooms']))
+    {
+      $res = selectAll('rooms');
+      $i=0;
+
+      $data = "";
+
+      while($row = mysqli_fetch_array($res))
+      {
+        $data.="
+          <tr class='align-middle'>
+             <td>$i</td>
+             <td>$row[name]</td>
+             <td>$row[area]</td>
+             <td>
+               <span class='badge rounded-pill bg-light text-dark'>
+                 Adult: $row[adult]
+               </span><br>
+               <span class='badge rounded-pill bg-light text-dark'>
+                 Children: $row[children]
+               </span>
+             </td>
+             <td>$row[price]</td>
+             <td>$row[quantity]</td>
+             <td>Status</td>
+             <td>Buttons</td>
+          </tr>
+        ";
+        $i++;
+      }
+
+      echo $data;
+    }
+
+
  
 
 ?>
