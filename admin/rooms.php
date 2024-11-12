@@ -233,17 +233,18 @@
     xhr.onload = function(){
       if(this.responseText==1){
         alert('success', 'Status toggled!');
+        get_all_rooms();
       }
       else{
         alert('error', 'Server Down!');
       }
     }
 
-    xhr.send('toggle_status='+id+'$value='+val);
+    xhr.send('toggle_status='+id+'&value='+val);
   }
 
   window.onload = function(){
-    toggle_status();
+    get_all_rooms();
   }
 
 
