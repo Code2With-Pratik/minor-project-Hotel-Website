@@ -66,11 +66,11 @@
       while($row = mysqli_fetch_array($res))
       {
          if($row['status']==1){
-          $status = "<button>active</button>
+          $status = "<button class='btn btn-dark btn-sm shadow-none'>active</button>
           ";
          }
          else{
-          $status = "<button>inactive</button>
+          $status = "<button class='btn btn-warning btn-sm shadow-none'>inactive</button>
           ";
          }
 
