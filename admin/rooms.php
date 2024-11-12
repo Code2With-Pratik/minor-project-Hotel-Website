@@ -156,7 +156,7 @@
     <form id="add_room_form" autocomplete="off" >
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title">Add Rooms</h5>
+          <h5 class="modal-title">Edit Rooms</h5>
         </div>
         <div class="modal-body">
           <div class="row">
