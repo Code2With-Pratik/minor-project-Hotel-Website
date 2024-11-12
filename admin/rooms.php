@@ -35,7 +35,7 @@
 
               
                   <div class="table-responsive-lg" style="height: 450px; overflow-y: scroll;">
-                      <table class="table table-hover border">
+                      <table class="table table-hover border text-center">
                         <thead>
                           <tr>
                             <th class="bg-dark text-light" scope="col">#</th>
@@ -200,8 +200,8 @@
 
       if(this.responseText == 1){
         alert('success','New room added!');
-      add_room_form.reset();
-
+        add_room_form.reset();
+        get_all_rooms();
       }
       else{
         alert('error','Server Down!');
