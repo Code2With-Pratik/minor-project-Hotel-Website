@@ -72,17 +72,17 @@
         <div class="modal-body">
           <div class="row">
             <div class="col-md-6 mb-3 ">
-              <label class="form-label fw-bold">Area</label>
+              <label class="form-label fw-bold">Name</label>
               <input type="text" name="name" class="form-control shadow-none" required >
             </div>                
             <div class="col-md-6 mb-3 ">
               <label class="form-label fw-bold">Area</label>
               <input type="number" min="1" name="area" class="form-control shadow-none" required >
             </div>                
-            <!-- <div class="col-md-6 mb-3 ">
+            <div class="col-md-6 mb-3 ">
               <label class="form-label fw-bold">Guests</label>
-              <input type="number" min="1" name="area" class="form-control shadow-none" required >
-            </div>                 -->
+              <input type="number" min="1" name="guests" class="form-control shadow-none" required >
+            </div>                
             <div class="col-md-6 mb-3 ">
               <label class="form-label fw-bold">Price</label>
               <input type="number" min="1" name="price" class="form-control shadow-none" required >
@@ -138,7 +138,6 @@
             <div class="col-12 mb-3">
               <label class="form-label fw-bold">Description</label>
               <textarea name="desc" rows="4" class="form-control shadow-none" required></textarea>
-
             </div>               
           </div>
         </div>
@@ -154,7 +153,7 @@
 
 <?php require('inc/scripts.php'); ?> 
 <script>
-  let add_room_form =document.getElementById('add_room_form');
+  let add_room_form = document.getElementById('add_room_form');
 
   add_room_form.addEventListener('submit',function(e){
     e.preventDefault();
@@ -200,14 +199,14 @@
       modal.hide();
 
       if(this.responseText == 1){
-      alert('success','New room added!');
+        alert('success','New room added!');
       add_room_form.reset();
 
       }
       else{
-      alert('error','Server Down!');
+        alert('error','Server Down!');
       }
-    }
+    };
 
     xhr.send(data);
   }
@@ -216,10 +215,10 @@
   {
     let xhr = new XMLHttpRequest();
     xhr.open("POST","ajax/rooms.php",true);
+    xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
 
     xhr.onload = function(){
      document.getElementById('room-data').innerHTML = this.responseText;
-     xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
     };
 
     xhr.send('get_all_rooms');
