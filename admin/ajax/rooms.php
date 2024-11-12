@@ -92,7 +92,7 @@
              <td>$status</td>
              <td>
                   <button type='button' class='btn btn-primary shadow-none btn-sm' data-bs-toggle='modal' data-bs-target='#edit-room'>
-                    <i class='bi bi-pencil-square'></i>Add
+                    <i class='bi bi-pencil-square'></i>
                   </button>
              </td>
           </tr>
