@@ -90,7 +90,11 @@
              <td>₹$row[price]</td>
              <td>$row[quantity]</td>
              <td>$status</td>
-             <td>Buttons</td>
+             <td>
+                  <button type='button' class='btn btn-primary shadow-none btn-sm' data-bs-toggle='modal' data-bs-target='#edit-room'>
+                    <i class='bi bi-pencil-square'></i>Add
+                  </button>
+             </td>
           </tr>
         ";
         $i++;
@@ -98,48 +102,20 @@
 
       echo $data;
     }
-    
-    if (isset($_POST['get_all_rooms']))
+
+    if (isset($_POST['toggle_status']))
     {
-      $res = selectAll('rooms');
-      $i=1;
+      $frm_data = filteration($_POST);
 
-      $data = "";
+      $q = "UPDATE `rooms` SET `status`=? WHERE `id`=?";
+      $v = [$frm_data['value'],$frm_data['toggle_status']];
 
-      while($row = mysqli_fetch_array($res))
-      {
-         if($row['status']==1){
-          $status = "<button onclick='toggle_status($row[id],0)' class='btn btn-dark btn-sm shadow-none'>active</button>
-          ";
-         }
-         else{
-          $status = "<button onclick='toggle_status($row[id],1)' class='btn btn-warning btn-sm shadow-none'>inactive</button>";
-         }
-
-
-        $data.="
-          <tr class='align-middle'>
-             <td>$i</td>
-             <td>$row[name]</td>
-             <td>$row[area] sq. ft.</td>
-             <td>
-               <span class='badge rounded-pill bg-light text-dark'>
-                 Adult: $row[adult]
-               </span><br>
-               <span class='badge rounded-pill bg-light text-dark'>
-                 Children: $row[children]
-               </span>
-             </td>
-             <td>₹$row[price]</td>
-             <td>$row[quantity]</td>
-             <td>$status</td>
-             <td>Buttons</td>
-          </tr>
-        ";
-        $i++;
+      if(update($q,$v,'ii')){
+        echo 1;
       }
-
-      echo $data;
+      else{
+        echo 0;
+      }
     }
 
 ?>
