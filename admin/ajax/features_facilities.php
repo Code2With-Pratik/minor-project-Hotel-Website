@@ -90,11 +90,20 @@
     {
         $frm_data = filteration($_POST);
         $values = [$frm_data['rem_facility']];
-        
-        $q = "DELETE FROM `facilities` WHERE `id`=?";
-        $res = delete($q,$values,'i'); 
-        echo $res;
+
+        $check_q = select('SELECT * FROM `room_facilities` WHERE `facilities_id`=?',[$frm_data['rem_facility']],'i');
+
+        if(mysqli_num_rows($check_q)==0)
+        {
+            $pre_q = "SELECT * FROM `facilities` WHERE `id`=?";
+            $res = select($pre_q,$values,'i');
+            $img = mysqli_fetch_assoc($res);
+         }
+         else{
+            echo 'room_added';
+         }
     }
+    
     
 
 ?>
