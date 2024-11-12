@@ -98,5 +98,48 @@
 
       echo $data;
     }
+    
+    if (isset($_POST['get_all_rooms']))
+    {
+      $res = selectAll('rooms');
+      $i=1;
+
+      $data = "";
+
+      while($row = mysqli_fetch_array($res))
+      {
+         if($row['status']==1){
+          $status = "<button onclick='toggle_status($row[id],0)' class='btn btn-dark btn-sm shadow-none'>active</button>
+          ";
+         }
+         else{
+          $status = "<button onclick='toggle_status($row[id],1)' class='btn btn-warning btn-sm shadow-none'>inactive</button>";
+         }
+
+
+        $data.="
+          <tr class='align-middle'>
+             <td>$i</td>
+             <td>$row[name]</td>
+             <td>$row[area] sq. ft.</td>
+             <td>
+               <span class='badge rounded-pill bg-light text-dark'>
+                 Adult: $row[adult]
+               </span><br>
+               <span class='badge rounded-pill bg-light text-dark'>
+                 Children: $row[children]
+               </span>
+             </td>
+             <td>₹$row[price]</td>
+             <td>$row[quantity]</td>
+             <td>$status</td>
+             <td>Buttons</td>
+          </tr>
+        ";
+        $i++;
+      }
+
+      echo $data;
+    }
 
 ?>
