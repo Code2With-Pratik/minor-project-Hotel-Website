@@ -471,7 +471,7 @@
     data.append('add_image','');
 
     let xhr = new XMLHttpRequest();
-    xhr.open("POST","ajax/carousel_crud.php",true);
+    xhr.open("POST","ajax/rooms.php",true);
 
     xhr.onload = function()
     {
@@ -492,6 +492,14 @@
 
     xhr.send('data');
   }
+
+  function room_images(id,rname)
+  {
+    document.querySelector("#room-images .modal-title").innerText = rname;
+    add_image_form.elements['room_id'].value = id;
+
+  }
+
 
   window.onload = function(){
     get_all_rooms();
