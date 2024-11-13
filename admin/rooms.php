@@ -50,10 +50,10 @@
                         </thead>
                         <tbody id="room-data">
                           
-                          </tbody>
-                        </table>
-                      </div>
-                      
+                        </tbody>
+                      </table>
+                  </div>
+           
               </div>
             </div>
 
@@ -96,22 +96,22 @@
               <input type="number" min="1" name="children" class="form-control shadow-none" required >
             </div> 
             <div class=" col-12 mb-3">
-            <label class="form-label fw-bold">Features</label>
-            <div class="row">
-              <?php
-                $res = selectAll('features');
-                while($opt = mysqli_fetch_assoc($res)){
-                  echo"
-                    <div class='col-md-3 mb-1'>
-                       <label>
-                          <input type='checkbox' name='features' value='$opt[id]' class='form-check-input shadow-none'>
-                          $opt[name]
-                       </label>
-                    </div>
-                  ";
-                }
-              ?>
-            </div>
+              <label class="form-label fw-bold">Features</label>
+              <div class="row">
+                <?php
+                  $res = selectAll('features');
+                  while($opt = mysqli_fetch_assoc($res)){
+                    echo"
+                      <div class='col-md-3 mb-1'>
+                        <label>
+                            <input type='checkbox' name='features' value='$opt[id]' class='form-check-input shadow-none'>
+                            $opt[name]
+                        </label>
+                      </div>
+                    ";
+                  }
+                ?>
+              </div>
             </div>               
             <div class=" col-12 mb-3">
             <label class="form-label fw-bold">Facilities</label>
@@ -234,6 +234,41 @@
   </div>
 </div>
 
+                  <!--room image Modal -->
+<div class="modal fade" id="room-images" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5">Room Name</h1>
+        <button type="button" class="btn-close shadow-none" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+         <div class="border-bottom border-3 pb-3 mb-3">
+            <form id="add_image_form">
+              <label class="form-label fw-bold">Add Image</label>
+              <input type="file" name="image" id="member_picture_inp" accept=".jpg, .png, .webp, .jpeg" class="form-control shadow-none mb-3" required >
+              <button class="btn custom-bg text-white shadow-none">ADD</button>
+              <input type="hidden" name="room_id">
+            </form>
+         </div>
+         <div class="table-responsive-lg" style="height: 350px; overflow-y: scroll;">
+              <table class="table table-hover border text-center">
+                <thead>
+                  <tr>
+                    <th class="bg-dark text-light" scope="col" width="60%">Image</th>
+                    <th class="bg-dark text-light" scope="col">Thumb</th>
+                    <th class="bg-dark text-light" scope="col">Delete</th>
+                  </tr>
+                </thead>
+                <tbody id="room-image-data">
+                  
+                </tbody>
+              </table>
+         </div>
+      </div>
+    </div>
+  </div>
+</div>
 
 <?php require('inc/scripts.php'); ?> 
 <script>
@@ -419,6 +454,43 @@
     }
 
     xhr.send('toggle_status='+id+'&value='+val);
+  }
+
+  let add_image_form =document.getElementById('add_image_form');
+
+  add_image_form.addEventListener('submit',function(e){
+    e.preventDefault();
+    add_image();
+  });
+
+  function add_image()
+  {
+    let data = new FormData();
+    data.append('image',add_image_form.elements['image'].files[0]);
+    data.append('room_id',add_image_form.elements['room_id'].value);
+    data.append('add_image','');
+
+    let xhr = new XMLHttpRequest();
+    xhr.open("POST","ajax/carousel_crud.php",true);
+
+    xhr.onload = function()
+    {
+      if(this.responseText == 'inv_img'){
+        alert('error','Only file format JPG,JPEG,PNG and webp are allowed!');
+      }
+      else if(this.responseText == 'inv_size'){
+        alert('error','Image should be less than 2 MB!');
+      }
+      else if(this.responseText == 'upd_failed'){
+        alert('error','Image upload failed. Server Down!');
+      }
+      else{
+        alert('success','New image added!');
+        add_image_form.reset();
+      }
+    }
+
+    xhr.send('data');
   }
 
   window.onload = function(){
