@@ -222,7 +222,7 @@
     {
         $frm_data = filteration($_POST);
 
-        $img_r = uploadImage($_FILES['image'],ABOUT_FOLDER);
+        $img_r = uploadImage($_FILES['image'],ROOMS_FOLDER);
 
         if($img_r == 'inv_img'){
             echo $img_r;
@@ -234,9 +234,9 @@
             echo $img_r;
         }
         else{
-            $q = "INSERT INTO `team_details`(`name`, `picture`) VALUES (?,?)";
-            $values = [$frm_data['name'],$img_r];
-            $res = insert($q,$values,'ss');
+            $q = "INSERT INTO `room_image`(`room_id`, `image`) VALUES (?,?)";
+            $values = [$frm_data['room_id'],$img_r];
+            $res = insert($q,$values,'is');
             echo $res;
         }
     }
