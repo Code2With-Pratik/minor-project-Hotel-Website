@@ -251,17 +251,15 @@
                     <div class="modal-header">
                       <h5 class="modal-title">Add Team Member</h5>
                     </div>
-                    <div class="modal-body">
-                      
+                    <div class="modal-body">  
                       <div class="mb-3 ">
-                      <label class="form-label fw-bold">Name</label>
-                      <input type="text" name="member_name" id="member_name_inp" class="form-control shadow-none" required >
-                    </div>                
-                    <div class="mb-3">
-                      <label class="form-label fw-bold">Picture</label>
-                      <input type="file" name="member_picture" id="member_picture_inp" accept=".jpg, .png, .webp, .jpeg" class="form-control shadow-none" required >
-                      </div>
-                      
+                        <label class="form-label fw-bold">Name</label>
+                        <input type="text" name="member_name" id="member_name_inp" class="form-control shadow-none" required >
+                      </div>                
+                      <div class="mb-3">
+                        <label class="form-label fw-bold">Picture</label>
+                        <input type="file" name="member_picture" id="member_picture_inp" accept=".jpg, .png, .webp, .jpeg" class="form-control shadow-none" required >
+                      </div>  
                     </div>
                     <div class="modal-footer">
                       <button type="button" onclick="member_name.value='' ,member_picture.value=''" class="btn text-secondary shadow-none" data-bs-dismiss="modal" >CANCEL</button>
