@@ -505,7 +505,6 @@
     get_all_rooms();
   }
 
-
 </script>
 
 </body>
