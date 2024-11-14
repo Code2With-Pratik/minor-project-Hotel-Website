@@ -519,7 +519,7 @@
         data.append('room_id',room_id);
         data.append('remove_room','');
 
-        let xhr = new XMLDocument();
+        let xhr = new XMLHttpRequest();
         xhr.open("POST","ajax/rooms.php",true);
 
         xhr.onload = function()
