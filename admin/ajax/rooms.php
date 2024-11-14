@@ -98,6 +98,9 @@
                 <button type='button' onclick=\"room_images($row[id],'$row[name]')\" class='btn btn-primary shadow-none btn-sm' data-bs-toggle='modal' data-bs-target='#room-images'>
                   <i class='bi bi-images'></i>
                 </button>
+                <button type='button' onclick='remove_room($row[id],'$row[name]')' class='btn btn-danger shadow-none btn-sm'>
+                  <i class='bi bi-trash'></i>
+                </button>
             </td>
         </tr>
       ";
@@ -265,7 +268,23 @@
   {
     $frm_data = filteration($_POST);
 
-    $res = select("SELECT * FROM `room_images` WHERE `room_id`=?",[$frm_data['room_id']],'i');
+    $res1 = select("SELECT * FROM `room_images` WHERE `room_id`=?",[$frm_data['room_id']],'i');
+
+    while($row = mysqli_fetch_assoc($res1)){
+      deleteImage($row['image'].ROOMS_FOLDER);
+    }
+
+    $res2 = delete("DELETE FROM `room_images` WHERE `room_id`=?",[$frm_data['room_id']],'i');
+    $res3 = delete("DELETE FROM `room_features` WHERE `room_id`=?",[$frm_data['room_id']],'i');
+    $res4 = delete("DELETE FROM `room_facilities` WHERE `room_id`=?",[$frm_data['room_id']],'i');
+    $res5 = update("UPDATE `room_facilities` SET `removed`=? WHERE `id`=?",[1,$frm_data['room_id']],'i');
+
+    if($res2 || $res3 || $res4 || $res5){
+      echo 1;
+    }
+    else{
+      echo 0;
+    }
   }
 
 ?>
