@@ -456,7 +456,7 @@
     xhr.send('toggle_status='+id+'&value='+val);
   }
 
-  let add_image_form =document.getElementById('add_image_form');
+  let add_image_form = document.getElementById('add_image_form');
 
   add_image_form.addEventListener('submit',function(e){
     e.preventDefault();
@@ -488,15 +488,26 @@
         alert('success','New image added!');
         add_image_form.reset();
       }
-    }
+    };
 
-    xhr.send('data');
+    xhr.send(data);
   }
 
   function room_images(id,rname)
   {
     document.querySelector("#room-images .modal-title").innerText = rname;
     add_image_form.elements['room_id'].value = id;
+    add_image_form.elements['image'].value = '';
+
+    let xhr = new XMLHttpRequest();
+    xhr.open("POST","ajax/rooms.php",true);
+    xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+
+    xhr.onload = function(){
+      document.getElementById('room-image-data').innerHTML = this.responseText;
+    }
+
+    xhr.send('get_room_images='+id);
 
   }
 
