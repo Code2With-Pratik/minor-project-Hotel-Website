@@ -205,7 +205,6 @@
 
   }
 
-
   if (isset($_POST['toggle_status']))
   {
     $frm_data = filteration($_POST);
