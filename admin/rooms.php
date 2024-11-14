@@ -520,7 +520,7 @@
         data.append('remove_room','');
 
         let xhr = new XMLHttpRequest();
-        xhr.open("POST","ajax/rooms.php",true);
+        xhr.open("POST", "ajax/rooms.php",true);
 
         xhr.onload = function()
         {
@@ -531,7 +531,8 @@
           else{
             alert('error','Room removel failed!');
           }
-        }
+        };
+
         xhr.send(data);
       }   
     
