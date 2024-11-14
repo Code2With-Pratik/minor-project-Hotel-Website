@@ -511,9 +511,35 @@
 
   }
 
+  function remove_room(room_id)
+  {
+    if(confirm("Are you sure, you want to delete this room?"))
+      {
+        let data = new FormData();
+        data.append('room_id',room_id);
+        data.append('remove_room','');
+
+        let xhr = new XMLDocument();
+        xhr.open("POST","ajax/rooms.php",true);
+
+        xhr.onload = function()
+        {
+          if(this.responseText == 1){
+            alert('success','Room removed!');
+            get_all_rooms();
+          }
+          else{
+            alert('error','Room removel failed!');
+          }
+        }
+        xhr.send(data);
+      }   
+    
+  }
 
   window.onload = function(){
     get_all_rooms();
+    // get_room_images();
   }
 
 
