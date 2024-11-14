@@ -240,10 +240,11 @@
             echo $res;
         }
     }
-    
-    if(isset($_POST['add_image']))
+
+    if(isset($_POST['get_room_image']))
     {
         $frm_data = filteration($_POST);
+        $res = select("SELECT * FROM `room_image` WHERE `room_id`=?",[$frm_data['get_room_image']],'i');
 
         $img_r = uploadImage($_FILES['image'],ROOMS_FOLDER);
 
