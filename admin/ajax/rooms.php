@@ -293,13 +293,15 @@
     $stmt->bind_param("i", $room_id);
     $stmt->execute();
 
+    // if and else statememt executed
+    
     if ($stmt->affected_rows > 0) {
         echo 1; // Room deleted successfully
     } else {
         echo 0; // Room deletion failed
     }
     $stmt->close();
-    
+
 }
 
 
