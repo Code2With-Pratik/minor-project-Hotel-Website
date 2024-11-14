@@ -98,7 +98,7 @@
                 <button type='button' onclick=\"room_images($row[id],'$row[name]')\" class='btn btn-primary shadow-none btn-sm' data-bs-toggle='modal' data-bs-target='#room-images'>
                   <i class='bi bi-images'></i>
                 </button>
-                <button type='button' onclick='remove_room($row[id],'$row[name]')' class='btn btn-danger shadow-none btn-sm'>
+                <button type='button' onclick=\"remove_room($row[id],'$row[name]')\" class='btn btn-danger shadow-none btn-sm'>
                   <i class='bi bi-trash'></i>
                 </button>
             </td>
@@ -255,7 +255,7 @@
       {
         echo<<<data
           <tr class='align-middle'>
-            <td><img src='images/rooms/6.png' class='img-fluid'></td>
+            <td><img src='{$path}{$row['image']}' class='img-fluid'></td>
             <td>thumb</td>
             <td>delete</td>
           </tr>
@@ -264,28 +264,45 @@
     
   }
 
-  if(isset($_POST['remove_room']))
-  {
-    $frm_data = filteration($_POST);
+  if (isset($_POST['remove_room']) && isset($_POST['room_id'])) {
+    $room_id = $_POST['room_id'];
 
-    $res1 = select("SELECT * FROM `room_images` WHERE `room_id`=?",[$frm_data['room_id']],'i');
+    // Delete related data from `room_features`, `room_facilities`, `room_image` first
+    $delete_features = "DELETE FROM room_features WHERE room_id = ?";
+    $delete_facilities = "DELETE FROM room_facilities WHERE room_id = ?";
+    $delete_images = "DELETE FROM room_image WHERE room_id = ?";
 
-    while($row = mysqli_fetch_assoc($res1)){
-      deleteImage($row['image'].ROOMS_FOLDER);
+    // Prepare and execute each deletion
+    $stmt1 = $con->prepare($delete_features);
+    $stmt1->bind_param("i", $room_id);
+    $stmt1->execute();
+    $stmt1->close();
+
+    $stmt2 = $con->prepare($delete_facilities);
+    $stmt2->bind_param("i", $room_id);
+    $stmt2->execute();
+    $stmt2->close();
+
+    $stmt3 = $con->prepare($delete_images);
+    $stmt3->bind_param("i", $room_id);
+    $stmt3->execute();
+    $stmt3->close();
+
+    // Now delete the room itself
+    $query = "DELETE FROM rooms WHERE id = ?";
+    $stmt = $con->prepare($query);
+    $stmt->bind_param("i", $room_id);
+    $stmt->execute();
+
+    if ($stmt->affected_rows > 0) {
+        echo 1; // Room deleted successfully
+    } else {
+        echo 0; // Room deletion failed
     }
+    $stmt->close();
+}
 
-    $res2 = delete("DELETE FROM `room_images` WHERE `room_id`=?",[$frm_data['room_id']],'i');
-    $res3 = delete("DELETE FROM `room_features` WHERE `room_id`=?",[$frm_data['room_id']],'i');
-    $res4 = delete("DELETE FROM `room_facilities` WHERE `room_id`=?",[$frm_data['room_id']],'i');
-    $res5 = update("UPDATE `room_facilities` SET `removed`=? WHERE `id`=?",[1,$frm_data['room_id']],'i');
 
-    if($res2 || $res3 || $res4 || $res5){
-      echo 1;
-    }
-    else{
-      echo 0;
-    }
-    
-  }
+
 
 ?>
