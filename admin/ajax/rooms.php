@@ -299,6 +299,7 @@
         echo 0; // Room deletion failed
     }
     $stmt->close();
+    
 }
 
 
