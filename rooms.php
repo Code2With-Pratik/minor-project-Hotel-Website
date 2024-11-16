@@ -16,10 +16,10 @@
   
 </div>
 
-<div class="container">
+<div class="container-fluid">
   <div class="row">
 
-    <div class="col-lg-3 col-md-12 mb-lg-0 mb-4 px-lg-0">
+    <div class="col-lg-3 col-md-12 mb-lg-0 mb-4 ps-4">
       <nav class="navbar navbar-expand-lg navbar-light bg-white rounded shadow">
         <div class="container-fluid flex-lg-column align-items-stretch">
           <h4 class="mt-2">FILTERS</h4>
@@ -69,6 +69,42 @@
     </div>
 
     <div class="col-lg-9 col-mb-12 px-4">
+
+
+      <?php
+        $room_res = select("SELECT * FROM `rooms` WHERE `status`=? AND `remove`=?",[1,0],'ii');
+
+        while($room_data = mysqli_fetch_assoc($room_res))
+        {
+          // get feature of rooms
+
+          $fea_q = mysqli_query($con,"SELECT f.name FROM `features` f 
+          INNER JOIN `room_features` rfea ON f.id = rfea.features_id 
+          WHERE rfea.room_id = '$room_data[id]'");
+
+          $features_data = "";
+          while($fea_row = mysqli_fetch_assoc($fea_q)){
+            $features_data .="<span class='badge rounded-pill text-bg-light text-wrap'>
+                    $fea_row[name]
+                  </span>";
+          }
+
+          // get facilities of rooms
+          $fac_q = mysqli_query($con,"SELECT f.name FROM `facilities` f 
+          INNER JOIN `room_facilities` rfac ON f.id = rfac.facilities_id 
+          WHERE rfac.room_id = '$room_data[id]'");
+
+          $facilities_data = "";
+          while($fea_row = mysqli_fetch_assoc($fac_q)){
+            $facilities_data .="<span class='badge rounded-pill text-bg-light text-wrap'>
+                    $fac_row[name]
+                  </span>";
+          }
+
+        }
+       ?>
+
+
         <div class="card mb-4 border-0 shadow">
           <div class="row g-0 p-3 align-items-center">
             <div class="col-md-5 mb-lg-0 mb-md-0 mb-3">
@@ -123,7 +159,7 @@
             </div>
          </div>
         </div>
-        <div class="card mb-4 border-0 shadow">
+        <!-- <div class="card mb-4 border-0 shadow">
           <div class="row g-0 p-3 align-items-center">
             <div class="col-md-5 mb-lg-0 mb-md-0 mb-3">
               <img src="images/rooms/1.jpg" class="img-fluid rounded">
@@ -176,8 +212,8 @@
               <a href="#" class="btn btn-sm w-100 btn-outline-dark shadow-none">More details</a>
             </div>
          </div>
-        </div>
-        <div class="card mb-4 border-0 shadow">
+        </div> -->
+        <!-- <div class="card mb-4 border-0 shadow">
           <div class="row g-0 p-3 align-items-center">
             <div class="col-md-5 mb-lg-0 mb-md-0 mb-3">
               <img src="images/rooms/1.jpg" class="img-fluid rounded">
@@ -230,7 +266,7 @@
               <a href="#" class="btn btn-sm w-100 btn-outline-dark shadow-none">More details</a>
             </div>
          </div>
-        </div>
+        </div> -->
     </div>
     
     
