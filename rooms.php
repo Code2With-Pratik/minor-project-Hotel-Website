@@ -90,6 +90,7 @@
           }
 
           // get facilities of rooms
+          
           $fac_q = mysqli_query($con,"SELECT f.name FROM `facilities` f 
           INNER JOIN `room_facilities` rfac ON f.id = rfac.facilities_id 
           WHERE rfac.room_id = '$room_data[id]'");
