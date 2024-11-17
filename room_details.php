@@ -132,10 +132,30 @@
                          <div class="mb-3">
                           <h6 class="mb-1">Features</h6>
                           $features_data
-                        </div>
+                         </div>
                      features;
 
-                     
+                      // get facilities of rooms
+
+                    $fac_q = mysqli_query($con,"SELECT f.name FROM `facilities` f 
+                    INNER JOIN `room_facilities` rfac ON f.id = rfac.facilities_id 
+                    WHERE rfac.room_id = '$room_data[id]'");
+
+                    $facilities_data = "";
+                    while($fac_row = mysqli_fetch_assoc($fac_q)){
+                      $facilities_data .="<span class='badge rounded-pill text-bg-light text-wrap'>
+                              $fac_row[name]
+                            </span>";
+                    }
+
+                    echo<<<facilities
+                          <div class=" mb-3">
+                            <h6 class="mb-1">Facilities</h6>
+                            $facilities_data
+                          </div>
+                    facilities;
+
+
                   ?>
                 </div>
                </div>
