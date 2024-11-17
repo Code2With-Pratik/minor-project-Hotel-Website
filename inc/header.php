@@ -100,7 +100,7 @@
 <div class="modal fade" id="registerModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
-      <form>
+      <form id="register-form">
       <div class="modal-header">
         <h1 class="modal-title fs-4 d-flex"><i class="bi bi-person-plus-fill fs-3 me-2"></i>User Regestration</h1>
         <button type="reset" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -114,39 +114,39 @@
         <div class="row">
           <div class="col-md-6 ">
           <label class="form-label">Name</label>
-          <input type="text" class="form-control shadow-none">
+          <input type="text" name="name" class="form-control shadow-none" required>
           </div>
           <div class="col-md-6 ">
           <label class="form-label">Email</label>
-          <input type="email" class="form-control shadow-none">
+          <input type="email" name="email" class="form-control shadow-none" required>
           </div>
           <div class="col-md-6 ">
           <label class="form-label">Phone Number</label>
-          <input type="number" class="form-control shadow-none">
+          <input type="number" name="phonenum" class="form-control shadow-none" required>
           </div>
           <div class="col-md-6  mb-3">
           <label class="form-label">Picture</label>
-          <input type="file" class="form-control shadow-none">
+          <input type="file" name="profile" accept=".png, .jpg, .webp, .jpeg" class="form-control shadow-none" required>
           </div>
           <div class="col-md-12 mb-3">
           <label class="form-label">Address</label>
-          <textarea class="form-control shadow-none" rows="1"></textarea>
+          <textarea name="address" class="form-control shadow-none" required rows="1"></textarea>
           </div>
           <div class="col-md-6 ">
           <label class="form-label">Pincode</label>
-          <input type="number" class="form-control shadow-none">
+          <input type="number" name="pincode" class="form-control shadow-none" required>
           </div>
           <div class="col-md-6  mb-3">
           <label class="form-label">Date of Birth</label>
-          <input type="date" class="form-control shadow-none">
+          <input type="date" name="dob" class="form-control shadow-none" required>
           </div>
           <div class="col-md-6 ">
           <label class="form-label">Password</label>
-          <input type="password" class="form-control shadow-none">
+          <input type="password" name="pass" class="form-control shadow-none" required>
           </div>
           <div class="col-md-6 mb-3">
           <label class="form-label">Confirm Password</label>
-          <input type="password" class="form-control shadow-none">
+          <input type="password" name="cpass" class="form-control shadow-none" required>
           </div>
         </div>
       </div>
