@@ -95,9 +95,7 @@
 </div>
 
 
-
-
- <!-- Room Cart -->
+         <!-- Room Cart -->
 <H2 class="mt-4 pt-2 mb-4 text-center fw-bold h-font">Our Rooms</H2>
 <div class="container">
   <div class="row">
