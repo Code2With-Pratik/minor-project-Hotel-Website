@@ -98,7 +98,47 @@
             </div>
           
 
-    <div class="col-lg-9 col-mb-12 px-4">
+             <div class="col-lg-5 col-mb-12 px-4">
+               <div class="card mb-4 border-0 shadow-sm rounded-3">
+                <div class="card-body">
+                  <?php
+                     echo<<<price
+                       <h4>₹$room_data[price] /- per night</h4>
+                     price;
+
+                     echo<<<rating
+                        <div class="mb-3">
+                          <i class="bi bi-star-fill text-warning"></i>
+                          <i class="bi bi-star-fill text-warning"></i>
+                          <i class="bi bi-star-fill text-warning"></i>
+                          <i class="bi bi-star-fill text-warning"></i>
+                        </div>
+                     rating;
+
+                     // get feature of rooms
+
+                    $fea_q = mysqli_query($con,"SELECT f.name FROM `features` f 
+                    INNER JOIN `room_features` rfea ON f.id = rfea.features_id 
+                    WHERE rfea.room_id = '$room_data[id]'");
+
+                    $features_data = "";
+                    while($fea_row = mysqli_fetch_assoc($fea_q)){
+                      $features_data .="<span class='badge rounded-pill text-bg-light text-wrap'>
+                              $fea_row[name]
+                        </span>";
+                    }
+
+                     echo<<<features
+                         <div class="mb-3">
+                          <h6 class="mb-1">Features</h6>
+                          $features_data
+                        </div>
+                     features;
+
+                     
+                  ?>
+                </div>
+               </div>
 
 
       <?php
