@@ -102,64 +102,61 @@
                   </span>";
           }
           
+
+         // Get thumbnail of the image
+          $room_thumb = ROOMS_IMG_PATH . "thumbnail.jpg"; // Default thumbnail
+          $thumb_q = mysqli_query($con, "SELECT `image` FROM `room_image` 
+                                        WHERE `room_id` = '$room_data[id]' AND `thumb` = '1'");
+
+          if ($thumb_q && mysqli_num_rows($thumb_q) > 0) {
+              $thumb_res = mysqli_fetch_assoc($thumb_q);
+              if (!empty($thumb_res['image'])) {
+                  $room_thumb = ROOMS_IMG_PATH . $thumb_res['image']; // Update with the actual thumbnail
+              }
+          }
+
+
+          // print room card
+
+          echo <<<data
+            <div class="card mb-4 border-0 shadow">
+              <div class="row g-0 p-3 align-items-center">
+                <div class="col-md-5 mb-lg-0 mb-md-0 mb-3">
+                  <img src="images/rooms/6.png" class="img-fluid rounded">
+                </div>
+                <div class="col-md-5 px-lg-3 px-mb-3 px-0">
+                  <h5 class="mb-3">$room_data[name]</h5>
+                    <div class="features mb-3">
+                      <h6 class="mb-1">Features</h6>
+                      $features_data
+                    </div>
+                    <div class="facilities mb-3">
+                      <h6 class="mb-1">Facilities</h6>
+                      $facilities_data
+                    </div>
+                    <div class="guest">
+                      <h6 class="mb-1">Guest</h6>
+                      <span class="badge rounded-pill text-bg-light text-wrap">
+                          $room_data[adult] Adult
+                        </span>
+                        <span class="badge rounded-pill text-bg-light text-wrap">
+                          $room_data[children] Children
+                        </span>
+                    </div>
+                </div>
+                <div class="col-md-2 mt-lg-0 mt-md-0 mt-4 text-center">
+                  <h6 class="mb-4">₹$room_data[price] /- per night</h6>
+                  <a href="#" class="btn btn-sm w-100 text-white custom-bg shadow-none mb-2">Book Now</a>
+                  <a href="#" class="btn btn-sm w-100 btn-outline-dark shadow-none">More details</a>
+                </div>
+              </div>
+            </div>
+          data;
         }
        ?>
 
 
-        <div class="card mb-4 border-0 shadow">
-          <div class="row g-0 p-3 align-items-center">
-            <div class="col-md-5 mb-lg-0 mb-md-0 mb-3">
-              <img src="images/rooms/1.jpg" class="img-fluid rounded">
-            </div>
-            <div class="col-md-5 px-lg-3 px-mb-3 px-0">
-              <h5 class="mb-3">Simple Room Name</h5>
-                <div class="features mb-3">
-                  <h6 class="mb-1">Features</h6>
-                  <span class="badge rounded-pill text-bg-light text-wrap">
-                    2 Rooms
-                  </span>
-                  <span class="badge rounded-pill text-bg-light text-wrap">
-                    1 Bathroom
-                  </span>
-                  <span class="badge rounded-pill text-bg-light text-wrap">
-                    1 Balcony
-                  </span>
-                  <span class="badge rounded-pill text-bg-light text-wrap">
-                    3 sofas
-                  </span>
-                </div>
-                <div class="facilities mb-3">
-                  <h6 class="mb-1">Facilities</h6>
-                  <span class="badge rounded-pill text-bg-light text-wrap">
-                      WiFi
-                    </span>
-                    <span class="badge rounded-pill text-bg-light text-wrap">
-                      Television
-                    </span>
-                    <span class="badge rounded-pill text-bg-light text-wrap">
-                      AC
-                    </span>
-                    <span class="badge rounded-pill text-bg-light text-wrap">
-                      Room Heater
-                    </span>
-                </div>
-                <div class="guest">
-                  <h6 class="mb-1">Guest</h6>
-                  <span class="badge rounded-pill text-bg-light text-wrap">
-                      5 Adult
-                    </span>
-                    <span class="badge rounded-pill text-bg-light text-wrap">
-                      4 Children
-                    </span>
-                </div>
-            </div>
-            <div class="col-md-2 mt-lg-0 mt-md-0 mt-4 text-center">
-              <h6 class="mb-4">₹500 per night</h6>
-              <a href="#" class="btn btn-sm w-100 text-white custom-bg shadow-none mb-2">Book Now</a>
-              <a href="#" class="btn btn-sm w-100 btn-outline-dark shadow-none">More details</a>
-            </div>
-         </div>
-        </div>
+   
         <!-- <div class="card mb-4 border-0 shadow">
           <div class="row g-0 p-3 align-items-center">
             <div class="col-md-5 mb-lg-0 mb-md-0 mb-3">
