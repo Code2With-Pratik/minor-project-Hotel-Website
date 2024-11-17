@@ -122,7 +122,42 @@
             <div class="card mb-4 border-0 shadow">
               <div class="row g-0 p-3 align-items-center">
                 <div class="col-md-5 mb-lg-0 mb-md-0 mb-3">
-                  <img src="images/rooms/6.png" class="img-fluid rounded">
+                   <div id="roomCarousel" class="carousel slide" data-bs-ride="carousel">
+                      <div class="carousel-inner">
+                        <div class="carousel-item">
+                          <img src="images/rooms/1.jpg" class="d-block w-100" >
+                        </div>
+                        <div class="carousel-item">
+                          <img src="images/rooms/2.png" class="d-block w-100">
+                        </div>
+                        <div class="carousel-item">
+                          <img src="images/rooms/3.png" class="d-block w-100" >
+                        </div>
+                        <div class="carousel-item">
+                          <img src="images/rooms/4.png" class="d-block w-100" >
+                        </div>
+                        <div class="carousel-item">
+                          <img src="images/rooms/5.png" class="d-block w-100" >
+                        </div>
+                        <div class="carousel-item active">
+                          <img src="images/rooms/6.png" class="d-block w-100" >
+                        </div>
+                        <div class="carousel-item">
+                          <img src="images/rooms/7.png" class="d-block w-100" >
+                        </div>
+                        <div class="carousel-item">
+                          <img src="images/rooms/8.png" class="d-block w-100" >
+                        </div>
+                      </div>
+                      <button class="carousel-control-prev" type="button" data-bs-target="#roomCarousel" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                      </button>
+                      <button class="carousel-control-next" type="button" data-bs-target="#roomCarousel" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                      </button>
+                    </div>
                 </div>
                 <div class="col-md-5 px-lg-3 px-mb-3 px-0">
                   <h5 class="mb-3">$room_data[name]</h5>
@@ -147,7 +182,7 @@
                 <div class="col-md-2 mt-lg-0 mt-md-0 mt-4 text-center">
                   <h6 class="mb-4">₹$room_data[price] /- per night</h6>
                   <a href="#" class="btn btn-sm w-100 text-white custom-bg shadow-none mb-2">Book Now</a>
-                  <a href="#" class="btn btn-sm w-100 btn-outline-dark shadow-none">More details</a>
+                  <a href="room_details.php?id=$room_data[id]" class="btn btn-sm w-100 btn-outline-dark shadow-none">More details</a>
                 </div>
               </div>
             </div>
