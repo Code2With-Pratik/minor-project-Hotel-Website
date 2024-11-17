@@ -101,209 +101,139 @@
 <H2 class="mt-4 pt-2 mb-4 text-center fw-bold h-font">Our Rooms</H2>
 <div class="container">
   <div class="row">
-    <div class="col-lg-4 col-md-6 my-3">
-    <div class="card border-0 shadow" style="max-width: 350px; margin: auto; ">
-  <img src="images/rooms/1.jpg" class="card-img-top">
-  <div class="card-body">
-    <h5>Simple room name</h5>
-    <h6 class="mb-4">₹500 per night</h6>
-    
-    
-    <div class="features mb-4">
-      <h6 class="mb-1">Features</h6>
-      <span class="badge rounded-pill text-bg-light text-wrap">
-         2 Rooms
-      </span>
-      <span class="badge rounded-pill text-bg-light text-wrap">
-         1 Bathroom
-      </span>
-      <span class="badge rounded-pill text-bg-light text-wrap">
-         1 Balcony
-      </span>
-      <span class="badge rounded-pill text-bg-light text-wrap">
-         3 sofas
-      </span>
-    </div>
+     <?php
+        $room_res = select("SELECT * FROM `rooms` WHERE `status`=? AND `remove`=? ORDER BY id DESC LIMIT 3", [1, 0], 'ii');
 
-  <div class="facilities mb-4">
-    <h6 class="mb-1">Facilities</h6>
-    <span class="badge rounded-pill text-bg-light text-wrap">
-         WiFi
-      </span>
-      <span class="badge rounded-pill text-bg-light text-wrap">
-         Television
-      </span>
-      <span class="badge rounded-pill text-bg-light text-wrap">
-         AC
-      </span>
-      <span class="badge rounded-pill text-bg-light text-wrap">
-         Room Heater
-      </span>
-  </div>
+        while($room_data = mysqli_fetch_assoc($room_res))
+        {
+          // get feature of rooms
 
-  <div class="guest mb-4">
-    <h6 class="mb-1">Guest</h6>
-    <span class="badge rounded-pill text-bg-light text-wrap">
-         5 Adult
-      </span>
-      <span class="badge rounded-pill text-bg-light text-wrap">
-         4 Children
-      </span>
-  </div>
+          $fea_q = mysqli_query($con,"SELECT f.name FROM `features` f 
+          INNER JOIN `room_features` rfea ON f.id = rfea.features_id 
+          WHERE rfea.room_id = '$room_data[id]'");
 
-    <div class="rating mb-4">
-       <h6 class="mb-1">Rating</h6>
-       <span class="badge rounded-pill bg-light">
-       <i class="bi bi-star-fill text-warning"></i>
-       <i class="bi bi-star-fill text-warning"></i>
-       <i class="bi bi-star-fill text-warning"></i>
-       <i class="bi bi-star-fill text-warning"></i>
-      </span>
-    </div>
-    <div class="d-flex justify-content-evenly mb-2">
-      <a href="#" class="btn btn-sm text-white custom-bg shadow-none">Book Now</a>
-      <a href="#" class="btn btn-sm  btn-outline-dark shadow-none">More details</a>
-    </div>
-  </div>
- 
-</div>
-    </div>
+          $features_data = "";
+          while($fea_row = mysqli_fetch_assoc($fea_q)){
+            $features_data .="<span class='badge rounded-pill text-bg-light text-wrap  me-1 mb-1'>
+                    $fea_row[name]
+                  </span>";
+          }
 
-    <div class="col-lg-4 col-md-6 my-3">
-    <div class="card border-0 shadow" style="max-width: 350px; margin: auto; ">
-  <img src="images/rooms/1.jpg" class="card-img-top">
-  <div class="card-body">
-    <h5>Simple room name</h5>
-    <h6 class="mb-4">₹500 per night</h6>
-    
-    
-    <div class="features mb-4">
-      <h6 class="mb-1">Features</h6>
-      <span class="badge rounded-pill text-bg-light text-wrap">
-         2 Rooms
-      </span>
-      <span class="badge rounded-pill text-bg-light text-wrap">
-         1 Bathroom
-      </span>
-      <span class="badge rounded-pill text-bg-light text-wrap">
-         1 Balcony
-      </span>
-      <span class="badge rounded-pill text-bg-light text-wrap">
-         3 sofas
-      </span>
-    </div>
+          // get facilities of rooms
 
-  <div class="facilities mb-4">
-    <h6 class="mb-1">Facilities</h6>
-    <span class="badge rounded-pill text-bg-light text-wrap">
-         WiFi
-      </span>
-      <span class="badge rounded-pill text-bg-light text-wrap">
-         Television
-      </span>
-      <span class="badge rounded-pill text-bg-light text-wrap">
-         AC
-      </span>
-      <span class="badge rounded-pill text-bg-light text-wrap">
-         Room Heater
-      </span>
-  </div>
+          $fac_q = mysqli_query($con,"SELECT f.name FROM `facilities` f 
+          INNER JOIN `room_facilities` rfac ON f.id = rfac.facilities_id 
+          WHERE rfac.room_id = '$room_data[id]'");
 
-  <div class="guest mb-4">
-    <h6 class="mb-1">Guest</h6>
-    <span class="badge rounded-pill text-bg-light text-wrap">
-         5 Adult
-      </span>
-      <span class="badge rounded-pill text-bg-light text-wrap">
-         4 Children
-      </span>
-  </div>
+          $facilities_data = "";
+          while($fac_row = mysqli_fetch_assoc($fac_q)){
+            $facilities_data .="<span class='badge rounded-pill text-bg-light text-wrap me-1 mb-1'>
+                    $fac_row[name]
+                  </span>";
+          }
+          
 
-    <div class="rating mb-4">
-       <h6 class="mb-1">Rating</h6>
-       <span class="badge rounded-pill bg-light">
-       <i class="bi bi-star-fill text-warning"></i>
-       <i class="bi bi-star-fill text-warning"></i>
-       <i class="bi bi-star-fill text-warning"></i>
-       <i class="bi bi-star-fill text-warning"></i>
-      </span>
-    </div>
-    <div class="d-flex justify-content-evenly mb-2">
-      <a href="#" class="btn btn-sm text-white custom-bg shadow-none">Book Now</a>
-      <a href="#" class="btn btn-sm  btn-outline-dark shadow-none">More details</a>
-    </div>
-  </div>
- 
-</div>
-    </div>
+         // Get thumbnail of the image
+          $room_thumb = ROOMS_IMG_PATH . "thumbnail.jpg"; // Default thumbnail
+          $thumb_q = mysqli_query($con, "SELECT `image` FROM `room_image` 
+                                        WHERE `room_id` = '$room_data[id]' AND `thumb` = '1'");
 
-    <div class="col-lg-4 col-md-6 my-3">
-    <div class="card border-0 shadow" style="max-width: 350px; margin: auto; ">
-  <img src="images/rooms/1.jpg" class="card-img-top">
-  <div class="card-body">
-    <h5>Simple room name</h5>
-    <h6 class="mb-4">₹500 per night</h6>
-    
-    
-    <div class="features mb-4">
-      <h6 class="mb-1">Features</h6>
-      <span class="badge rounded-pill text-bg-light text-wrap">
-         2 Rooms
-      </span>
-      <span class="badge rounded-pill text-bg-light text-wrap">
-         1 Bathroom
-      </span>
-      <span class="badge rounded-pill text-bg-light text-wrap">
-         1 Balcony
-      </span>
-      <span class="badge rounded-pill text-bg-light text-wrap">
-         3 sofas
-      </span>
-    </div>
+          if ($thumb_q && mysqli_num_rows($thumb_q) > 0) {
+              $thumb_res = mysqli_fetch_assoc($thumb_q);
+              if (!empty($thumb_res['image'])) {
+                  $room_thumb = ROOMS_IMG_PATH . $thumb_res['image']; // Update with the actual thumbnail
+              }
+          }
 
-  <div class="facilities mb-4">
-    <h6 class="mb-1">Facilities</h6>
-    <span class="badge rounded-pill text-bg-light text-wrap">
-         WiFi
-      </span>
-      <span class="badge rounded-pill text-bg-light text-wrap">
-         Television
-      </span>
-      <span class="badge rounded-pill text-bg-light text-wrap">
-         AC
-      </span>
-      <span class="badge rounded-pill text-bg-light text-wrap">
-         Room Heater
-      </span>
-  </div>
 
-  <div class="guest mb-4">
-    <h6 class="mb-1">Guest</h6>
-    <span class="badge rounded-pill text-bg-light text-wrap">
-         5 Adult
-      </span>
-      <span class="badge rounded-pill text-bg-light text-wrap">
-         4 Children
-      </span>
-  </div>
+          // print room card
 
-    <div class="rating mb-4">
-       <h6 class="mb-1">Rating</h6>
-       <span class="badge rounded-pill bg-light">
-       <i class="bi bi-star-fill text-warning"></i>
-       <i class="bi bi-star-fill text-warning"></i>
-       <i class="bi bi-star-fill text-warning"></i>
-       <i class="bi bi-star-fill text-warning"></i>
-      </span>
-    </div>
-    <div class="d-flex justify-content-evenly mb-2">
-      <a href="#" class="btn btn-sm text-white custom-bg shadow-none">Book Now</a>
-      <a href="#" class="btn btn-sm  btn-outline-dark shadow-none">More details</a>
-    </div>
-  </div>
- 
-</div>
-    </div>
+          echo <<<data
+           
+          <div class="col-lg-4 col-md-6 my-3">
+            <div class="card border-0 shadow" style="max-width: 350px; margin: auto; ">
+              <div id="roomCarousel" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                  <div class="carousel-item">
+                    <img src="images/rooms/1.jpg" class="d-block w-100" >
+                  </div>
+                  <div class="carousel-item">
+                    <img src="images/rooms/2.png" class="d-block w-100">
+                  </div>
+                  <div class="carousel-item">
+                    <img src="images/rooms/3.png" class="d-block w-100" >
+                  </div>
+                  <div class="carousel-item">
+                    <img src="images/rooms/4.png" class="d-block w-100" >
+                  </div>
+                  <div class="carousel-item">
+                    <img src="images/rooms/5.png" class="d-block w-100" >
+                  </div>
+                  <div class="carousel-item active">
+                    <img src="images/rooms/6.png" class="d-block w-100" >
+                  </div>
+                  <div class="carousel-item">
+                    <img src="images/rooms/7.png" class="d-block w-100" >
+                  </div>
+                  <div class="carousel-item">
+                    <img src="images/rooms/8.png" class="d-block w-100" >
+                  </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#roomCarousel" data-bs-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#roomCarousel" data-bs-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Next</span>
+                </button>
+              </div>
+              <div class="card-body">
+                <h5>$room_data[name]</h5>
+                <h6 class="mb-4">₹$room_data[price] /- per night</h6>
+                
+                
+                <div class="features mb-3">
+                  <h6 class="mb-1">Features</h6>
+                  $features_data
+                </div>
+
+              <div class="facilities mb-3">
+                <h6 class="mb-1">Facilities</h6>
+                    $facilities_data
+              </div>
+
+              <div class="guest mb-3">
+                <h6 class="mb-1">Guest</h6>
+                  <span class="badge rounded-pill text-bg-light text-wrap">
+                     $room_data[adult] Adult
+                  </span>
+                  <span class="badge rounded-pill text-bg-light text-wrap">
+                     $room_data[children] Children
+                  </span>
+              </div>
+
+                <div class="rating mb-4">
+                  <h6 class="mb-1">Rating</h6>
+                  <span class="badge rounded-pill bg-light">
+                  <i class="bi bi-star-fill text-warning"></i>
+                  <i class="bi bi-star-fill text-warning"></i>
+                  <i class="bi bi-star-fill text-warning"></i>
+                  <i class="bi bi-star-fill text-warning"></i>
+                  </span>
+                </div>
+                <div class="d-flex justify-content-evenly mb-2">
+                  <a href="#" class="btn btn-sm text-white custom-bg shadow-none">Book Now</a>
+                  <a href="room_details.php?id=$room_data[id]" class="btn btn-sm  btn-outline-dark shadow-none">More details</a>
+                </div>
+              </div>
+            
+            </div>
+          </div>
+          data;
+        }
+
+     ?>
 
     <div class="col-lg-12 text-center mt-5">
         <a href="rooms.php" class="btn btn-sm btn-outline-dark rounded-1 fw-bold shadow-none">More Rooms >>></a>
@@ -318,7 +248,7 @@
 <div class="container">
   <div class="row justify-content-evenly px-lg-0 px-md-0 px-5">
   <?php 
-    $res = mysqli_query($con, "SELECT * FROM `facilities` ORDER BY id DESC LIMIT 5");
+      $res = mysqli_query($con, "SELECT * FROM `facilities` ORDER BY id DESC LIMIT 5");
 
     while($row = mysqli_fetch_assoc($res)){
       echo<<<data
