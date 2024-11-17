@@ -308,7 +308,7 @@
     
 
     <div class="col-lg-12 text-center mt-5">
-        <a href="#" class="btn btn-sm btn-outline-dark rounded-1 fw-bold shadow-none">More Rooms >>></a>
+        <a href="rooms.php" class="btn btn-sm btn-outline-dark rounded-1 fw-bold shadow-none">More Rooms >>></a>
     </div>
   </div>
 </div>
@@ -340,7 +340,7 @@
       <h5 class="mt-3">WiFi</h5>
     </div> 
     <div class="col-lg-12 text-center mt-5">
-       <a href="#" class="btn btn-sm btn-outline-dark rounded-1 fw-bold shadow-none">More Facilit >>></a>
+       <a href="facilities.php" class="btn btn-sm btn-outline-dark rounded-1 fw-bold shadow-none">More Facilities >>></a>
     </div>
   </div>
 </div>
