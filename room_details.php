@@ -43,14 +43,29 @@
             <div class="col-lg-7 col-md-12 px-4">
               <div id="roomCarousel" class="carousel slide" data-bs-ride="carousel">
                 <div class="carousel-inner">
+                  <div class="carousel-item">
+                    <img src="images/rooms/1.jpg" class="d-block w-100" >
+                  </div>
+                  <div class="carousel-item">
+                    <img src="images/rooms/2.png" class="d-block w-100">
+                  </div>
+                  <div class="carousel-item">
+                    <img src="images/rooms/3.png" class="d-block w-100" >
+                  </div>
+                  <div class="carousel-item">
+                    <img src="images/rooms/4.png" class="d-block w-100" >
+                  </div>
+                  <div class="carousel-item">
+                    <img src="images/rooms/5.png" class="d-block w-100" >
+                  </div>
                   <div class="carousel-item active">
-                    <img src="..." class="d-block w-100" alt="...">
+                    <img src="images/rooms/6.png" class="d-block w-100" >
                   </div>
                   <div class="carousel-item">
-                    <img src="..." class="d-block w-100" alt="...">
+                    <img src="images/rooms/7.png" class="d-block w-100" >
                   </div>
                   <div class="carousel-item">
-                    <img src="..." class="d-block w-100" alt="...">
+                    <img src="images/rooms/8.png" class="d-block w-100" >
                   </div>
                 </div>
                 <button class="carousel-control-prev" type="button" data-bs-target="#roomCarousel" data-bs-slide="prev">
