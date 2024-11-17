@@ -42,7 +42,25 @@
 
             <div class="col-lg-7 col-md-12 px-4">
               <div id="roomCarousel" class="carousel slide" data-bs-ride="carousel">
-                <div class="carousel-inner">
+                <div class="carousel-inner rounded">
+                  <?php 
+                    // Get thumbnail of the image
+                    $room_img = ROOMS_IMG_PATH . "thumbnail.jpg"; // Default thumbnail
+                    $thumb_q = mysqli_query($con, "SELECT `image` FROM `room_image` 
+                                                  WHERE `room_id` = '$room_data[id]' AND `thumb` = '1'");
+
+                    if ($thumb_q && mysqli_num_rows($thumb_q) > 0) {
+                        $thumb_res = mysqli_fetch_assoc($thumb_q);
+                        if (!empty($thumb_res['image'])) {
+                            $room_thumb = ROOMS_IMG_PATH . $thumb_res['image']; // Update with the actual thumbnail
+                        }
+                        else{
+                          echo "<div class='carousel-item'>
+                            <img src='$room_img' class='d-block w-100' >
+                          </div>";
+                        }
+                    }
+                  ?>
                   <div class="carousel-item">
                     <img src="images/rooms/1.jpg" class="d-block w-100" >
                   </div>
