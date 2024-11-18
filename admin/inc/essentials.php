@@ -47,6 +47,7 @@ function alert($type,$msg){
         </div>
      alert;
 }
+
 function uploadImage($image,$folder)
 {
   $valid_mime = ['image/jpeg','image/png','image/webp'];
