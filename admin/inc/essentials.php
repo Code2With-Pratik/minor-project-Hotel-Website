@@ -141,6 +141,4 @@ function uploadUserImage($image)
   }
 }
 
-
-
 ?>
