@@ -30,7 +30,8 @@
 
         $img = uploadUserImage($_FILES['profile']);
 
-        if($img == 'inv_img'){
+        if($img == 'inv_img')
+        {
             echo 'inv_image';
             exit;
         }
