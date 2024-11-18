@@ -41,6 +41,5 @@
         // send email confirmation link to the user's email
 
         
-        
     }
 ?>
