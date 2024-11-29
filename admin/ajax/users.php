@@ -163,6 +163,4 @@ if (isset($_POST['search_users'])) {
   echo $data;
 }
 
-
-
 ?>
