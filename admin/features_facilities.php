@@ -10,6 +10,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Panel - Features & Facilities</title>
+    <link rel="icon" href="../images/logo/hotel-logo.avif">
     <?php require('inc/links.php'); ?>
 </head>
 <body class="bg-light">
@@ -67,7 +68,7 @@
                   </div>
 
                   
-                  <div class="table-responsive-md" style="height: 250px; overflow-y: scroll;">
+                  <div class="table-responsive-md" style="height: 450px; overflow-y: scroll;">
                       <table class="table table-hover border">
                         <thead class="sticky-top">
                           <tr>
