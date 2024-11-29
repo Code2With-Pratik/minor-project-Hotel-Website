@@ -3,7 +3,8 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Hotel - Home</title>
+    <title>GrandStay - Home</title>
+    <link rel="icon" href="images/logo/hotel-logo.avif">
     <?php require('inc/links.php'); ?>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
     <style>   
@@ -56,7 +57,7 @@
     <div class="col-lg-12 bg-white shadow p-4 rounded">
       <h5 class="mb-4">Check Booking Availability</h5>
       <form>
-        <div class="row align-item-end">
+        <div class="row align-items-end">
           <div class="col-lg-3 mb-3">
             <label class="form-label" style="font-weight: 500;">Check In</label>
             <input type="date" class="form-control shadow-none">
@@ -143,6 +144,16 @@
               }
           }
 
+          $book_btn = "";
+
+          if(!$row['shutdown']){
+            $login=0;
+            if(isset($_SESSION['login']) && $_SESSION['login'] === true){
+              $login=1;
+            }
+           $book_btn = "<button onclick='checkLoginToBook($login,$room_data[id])' class='btn btn-sm text-white custom-bg shadow-none'>Book Now</button>";
+          }
+
 
           // print room card
 
@@ -221,7 +232,7 @@
                   </span>
                 </div>
                 <div class="d-flex justify-content-evenly mb-2">
-                  <a href="#" class="btn btn-sm text-white custom-bg shadow-none">Book Now</a>
+                 $book_btn 
                   <a href="room_details.php?id=$room_data[id]" class="btn btn-sm  btn-outline-dark shadow-none">More details</a>
                 </div>
               </div>
@@ -274,12 +285,27 @@
       <div class="swiper-slide bg-white p-4">
         <div class="profile d-flex align-item-center p-0">
           <img src="images/features/star.svg" alt="">
-          <h6 class="m-5 ms-0">Random user1</h6>
+          <h6 class="m-5 ms-0">Mahesh Rao</h6>
         </div>
         <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-          Quod assumenda nobis eveniet quisquam alias magni velit perspiciatis 
-          sequi ipsa ex!
+        "This is a fantastic hotel. Our rooms were very comfortable. 
+        The hotel is convenient to the central area of Helsinki as well
+         as to the train station."
+        </p>
+        <div class="rating">
+          <i class="bi bi-star-fill text-warning"></i>
+          <i class="bi bi-star-fill text-warning"></i>
+          <i class="bi bi-star-fill text-warning"></i>
+        </div>
+      </div>
+      <div class="swiper-slide bg-white p-4">
+        <div class="profile d-flex align-item-center p-0">
+          <img src="images/features/star.svg" alt="">
+          <h6 class="m-5 ms-0">Pratyush Sao</h6>
+        </div>
+        <p>
+        "Great value for money stay near Helsinki station, location was fantastic, 
+         place was clean, staff were friendly, breakfast was great."
         </p>
         <div class="rating">
           <i class="bi bi-star-fill text-warning"></i>
@@ -291,12 +317,13 @@
       <div class="swiper-slide bg-white p-4">
         <div class="profile d-flex align-item-center p-0">
           <img src="images/features/star.svg" alt="">
-          <h6 class="m-5 ms-0">Random user1</h6>
+          <h6 class="m-5 ms-0">Abhishek</h6>
         </div>
         <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-          Quod assumenda nobis eveniet quisquam alias magni velit perspiciatis 
-          sequi ipsa ex!
+        "Beautiful stay!
+        Hotel Arthur is a perfect place to stay in Helsinki. 
+        It is close to the center and the railway station.
+         The room was very pleasant."
         </p>
         <div class="rating">
           <i class="bi bi-star-fill text-warning"></i>
@@ -308,12 +335,12 @@
       <div class="swiper-slide bg-white p-4">
         <div class="profile d-flex align-item-center p-0">
           <img src="images/features/star.svg" alt="">
-          <h6 class="m-5 ms-0">Random user1</h6>
+          <h6 class="m-5 ms-0">Pratik Dhandare</h6>
         </div>
         <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-          Quod assumenda nobis eveniet quisquam alias magni velit perspiciatis 
-          sequi ipsa ex!
+        "The hotel room was clean, nice and spacious. Breakfast offered with a wide variety of food.
+         The staff were friendly and helpful. 
+         The location is just perfect for a walk around the city centre"
         </p>
         <div class="rating">
           <i class="bi bi-star-fill text-warning"></i>
@@ -325,12 +352,79 @@
       <div class="swiper-slide bg-white p-4">
         <div class="profile d-flex align-item-center p-0">
           <img src="images/features/star.svg" alt="">
-          <h6 class="m-5 ms-0">Random user1</h6>
+          <h6 class="m-5 ms-0">Vikas Dewangan</h6>
         </div>
         <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-          Quod assumenda nobis eveniet quisquam alias magni velit perspiciatis 
-          sequi ipsa ex!
+        "Hospitality, kindness, cleanliness ans service were there as expected.
+         I can only advise you to continue this way same if
+          it would be nice to offer some croissants and pains au chocolats at the breakfast…"
+        </p>
+        <div class="rating">
+          <i class="bi bi-star-fill text-warning"></i>
+          <i class="bi bi-star-fill text-warning"></i>
+          <i class="bi bi-star-fill text-warning"></i>
+          <i class="bi bi-star-fill text-warning"></i>
+        </div>
+      </div>
+      <div class="swiper-slide bg-white p-4">
+        <div class="profile d-flex align-item-center p-0">
+          <img src="images/features/star.svg" alt="">
+          <h6 class="m-5 ms-0">Ayushi Sing</h6>
+        </div>
+        <p>
+        "Clean and comfy hotel in city centre
+        We had a wonderful stay in charming Hotel Arthur.
+        Staff was welcoming,"
+        </p>
+        <div class="rating">
+          <i class="bi bi-star-fill text-warning"></i>
+          <i class="bi bi-star-fill text-warning"></i>
+          <i class="bi bi-star-fill text-warning"></i>
+          <i class="bi bi-star-fill text-warning"></i>
+        </div>
+      </div>
+      <div class="swiper-slide bg-white p-4">
+        <div class="profile d-flex align-item-center p-0">
+          <img src="images/features/star.svg" alt="">
+          <h6 class="m-5 ms-0">Shubham</h6>
+        </div>
+        <p>
+        "Great hotel for our last night in Helsinki
+        We arrived before 12pm and we could have a room straight
+         away instead of just dropping the bags in the luggage area! Staff was friendly"
+        </p>
+        <div class="rating">
+          <i class="bi bi-star-fill text-warning"></i>
+          <i class="bi bi-star-fill text-warning"></i>
+          <i class="bi bi-star-fill text-warning"></i>
+          <i class="bi bi-star-fill text-warning"></i>
+        </div>
+      </div>
+      <div class="swiper-slide bg-white p-4">
+        <div class="profile d-flex align-item-center p-0">
+          <img src="images/features/star.svg" alt="">
+          <h6 class="m-5 ms-0">Sanskriti</h6>
+        </div>
+        <p>
+        "Clean and comfy hotel in city centre
+        We had a wonderful stay in charming Hotel Arthur.
+        Staff was welcoming,"
+        </p>
+        <div class="rating">
+          <i class="bi bi-star-fill text-warning"></i>
+          <i class="bi bi-star-fill text-warning"></i>
+          <i class="bi bi-star-fill text-warning"></i>
+          <i class="bi bi-star-fill text-warning"></i>
+        </div>
+      </div>
+      <div class="swiper-slide bg-white p-4">
+        <div class="profile d-flex align-item-center p-0">
+          <img src="images/features/star.svg" alt="">
+          <h6 class="m-5 ms-0">Vivek Yadav</h6>
+        </div>
+        <p>
+        "Very decent for a short city break. Excellent location, 
+        central and well connected with tram/metro. Staff was welcoming,"
         </p>
         <div class="rating">
           <i class="bi bi-star-fill text-warning"></i>
@@ -454,6 +548,11 @@
           slidePerView: 4,
         },
       }
+    });
+
+    document.getElementById('availabilityForm').addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevent the default form submission behavior
+    alert('Bookings available!');
     });
   </script>
 
