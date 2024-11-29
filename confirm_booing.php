@@ -3,7 +3,8 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Hotel - CONFIRM BOOKING</title>
+    <title>GrandStay - CONFIRM BOOKING</title>
+    <link rel="icon" href="images/logo/hotel-logo.avif">
     <?php require('inc/links.php'); ?>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -117,7 +118,7 @@
              <div class="col-lg-5 col-mb-12 px-4">
                <div class="card mb-4 border-0 shadow-sm rounded-3">
                 <div class="card-body">
-                  <form id="booking_form">
+                  <form action="confirmbooking.php" method="POST" id="booking_form">
                     <h6 class="mb-3">BOOKING DETAILS</h6>
                     <div class="row">
                       <div class="col-md-12 mb-3">
@@ -153,7 +154,7 @@
                           <input type="text" class="form-control shadow-none" name="payAmount" id="payAmount" placeholder="Enter Amount" required autofocus="">
                         </div>
 
-                        <button id="PayNow" name="pay_now" class="btn w-100 text-white custom-bg shadow-sm mb-1" disabled >Pay Now</button>
+                        <button id="PayNow" name="pay_now" type="submit" class="btn w-100 text-white custom-bg shadow-sm mb-1" disabled >Pay Now</button>
                       </div>
                     </div>
                   </form>
@@ -231,106 +232,81 @@ function check_availability() {
 }
 
    //Pay Amount
-   jQuery(document).ready(function($){
+   jQuery(document).ready(function ($) {
+    jQuery('#PayNow').click(function (e) {
+        e.preventDefault(); // Prevent form submission
+        console.log("Pay Now clicked"); // Debug log
 
-jQuery('#PayNow').click(function(e){
+        var paymentOption = 'netbanking';
+        let billing_name = $('#billing_name').val();
+        let billing_mobile = $('#billing_mobile').val();
+        let billing_email = $('#billing_email').val();
+        var shipping_name = $('#billing_name').val();
+        var shipping_mobile = $('#billing_mobile').val();
+        var shipping_email = $('#billing_email').val();
+        var payAmount = $('#payAmount').val();
 
-	var paymentOption='';
-    let billing_name = $('#billing_name').val();
-	let billing_mobile = $('#billing_mobile').val();
-	let billing_email = $('#billing_email').val();
-    var shipping_name = $('#billing_name').val();
-	var shipping_mobile = $('#billing_mobile').val();
-	var shipping_email = $('#billing_email').val();
-    var paymentOption= "netbanking";
-    var payAmount = $('#payAmount').val();
-			
-    var request_url="submitpayment.php";
-		var formData = {
-			billing_name:billing_name,
-			billing_mobile:billing_mobile,
-			billing_email:billing_email,
-			shipping_name:shipping_name,
-			shipping_mobile:shipping_mobile,
-			shipping_email:shipping_email,
-			paymentOption:paymentOption,
-			payAmount:payAmount,
-			action:'payOrder'
-		}
-		
-		$.ajax({
-			type: 'POST',
-			url:request_url,
-			data:formData,
-			dataType: 'json',
-			encode:true,
-		}).done(function(data){
-		
-		if(data.res=='success'){
-				var orderID=data.order_number;
-				var orderNumber=data.order_number;
-				var options = {
-            "key": data.razorpay_key, // Enter the Key ID generated from the Dashboard
-            "amount": data.userData.amount, // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
-            "currency": "INR",
-            "name": "Pratik Dhandare", //your business name
-            "description": data.userData.description,
-            "image": "https://img.freepik.com/premium-vector/hotel-logo-design_423075-16.jpg?w=740",
-            "order_id": data.userData.rpay_order_id, //This is a sample Order ID. Pass 
-            "handler": function (response){
-
-            window.location.replace("payment-success.php?oid="+orderID+"&rp_payment_id="+response.razorpay_payment_id+"&rp_signature="+response.razorpay_signature);
-
-            },
-            "modal": {
-            "ondismiss": function(){
-                window.location.replace("payment-success.php?oid="+orderID);
-            }
-        },
-            "prefill": { //We recommend using the prefill parameter to auto-fill customer's contact information especially their phone number
-                "name": data.userData.name, //your customer's name
-                "email": data.userData.email,
-                "contact": data.userData.mobile //Provide the customer's phone number for better conversion rates 
-            },
-            "notes": {
-                "address": "HotelBookingWebsite"
-            },
-            "config": {
-            "display": {
-            "blocks": {
-                "banks": {
-                "name": 'Pay using '+paymentOption,
-                "instruments": [
-                
-                    {
-                        "method": paymentOption
-                    },
-                    ],
-                },
-            },
-            "sequence": ['block.banks'],
-            "preferences": {
-                "show_default_blocks": true,
-            },
-            },
-        },
-            "theme": {
-                "color": "#3399cc"
-            }
+        var request_url = "submitpayment.php";
+        var formData = {
+            billing_name: billing_name,
+            billing_mobile: billing_mobile,
+            billing_email: billing_email,
+            shipping_name: shipping_name,
+            shipping_mobile: shipping_mobile,
+            shipping_email: shipping_email,
+            paymentOption: paymentOption,
+            payAmount: payAmount,
+            action: 'payOrder'
         };
-    var rzp1 = new Razorpay(options);
-    rzp1.on('payment.failed', function (response){
 
-    window.location.replace("payment-failed.php?oid="+orderID+"&reason="+response.error.description+"&paymentid="+response.error.metadata.payment_id);
-
-         });
-      rzp1.open();
-     e.preventDefault(); 
-    }
- 
-  });
- });
+        $.ajax({
+            type: 'POST',
+            url: request_url,
+            data: formData,
+            dataType: 'json',
+            encode: true,
+        }).done(function (data) {
+            if (data.res == 'success') {
+                var orderID = data.order_number;
+                var orderNumber = data.order_number;
+                var options = {
+                    "key": data.razorpay_key,
+                    "amount": data.userData.amount,
+                    "currency": "INR",
+                    "name": "GrandStay Hotel Bookings",
+                    "description": data.userData.description,
+                    "image": "https://img.freepik.com/premium-vector/hotel-logo-design_423075-16.jpg?w=740",
+                    "order_id": data.userData.rpay_order_id,
+                    "handler": function (response) {
+                        window.location.replace("payment-success.php?oid=" + orderID + "&rp_payment_id=" + response.razorpay_payment_id + "&rp_signature=" + response.razorpay_signature);
+                    },
+                    "modal": {
+                        "ondismiss": function () {
+                            window.location.replace("payment-success.php?oid=" + orderID);
+                        }
+                    },
+                    "prefill": {
+                        "name": data.userData.name,
+                        "email": data.userData.email,
+                        "contact": data.userData.mobile
+                    },
+                    "notes": {
+                        "address": "GrandStayHotelBookingWebsite"
+                    },
+                    "theme": {
+                        "color": "#33cc54"
+                    }
+                };
+                var rzp1 = new Razorpay(options);
+                rzp1.on('payment.failed', function (response) {
+                    window.location.replace("payment-failed.php?oid=" + orderID + "&reason=" + response.error.description + "&paymentid=" + response.error.metadata.payment_id);
+                });
+                rzp1.open();
+            }
+        });
+    });
 });
+
 </script>
 
 
