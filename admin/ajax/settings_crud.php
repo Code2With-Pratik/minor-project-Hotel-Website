@@ -24,7 +24,6 @@
         echo $res;
     }
 
-
     if(isset($_POST['upd_shutdown']))
     {
         $frm_data = ($_POST['upd_shutdown']==0) ? 1 : 0;
