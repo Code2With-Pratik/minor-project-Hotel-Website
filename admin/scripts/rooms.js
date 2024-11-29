@@ -266,5 +266,5 @@ if(confirm("Are you sure, you want to delete this room?"))
 
 window.onload = function(){
 get_all_rooms();
-// get_room_images();
+// get_room_images();  
 }
