@@ -3,7 +3,8 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Hotel - Facilities</title>
+    <title>GrandStay - Facilities</title>
+    <link rel="icon" href="images/logo/hotel-logo.avif">
     <?php require('inc/links.php'); ?>
     <style>
       .pop:hover{
@@ -21,9 +22,11 @@
   <h2 class="fw-bold h-font text-center">OUR FACILITIES</h2>
   <div class="h-line bg-dark "></div>
   <p class="text-center mt-3">
-    Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
-    Exercitationem quasi deleniti quae <br> officiis accusamus minus iusto, 
-    corrupti perferendis harum maxime.
+  "Discover unparalleled luxury, modern amenities, spacious rooms,
+  <br> serene 
+  ambiance, premium comfort, stylish interiors,
+  <br> 
+  and quality hospitality for unforgettable stays."
   </p>
 </div>
 
