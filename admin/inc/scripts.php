@@ -18,7 +18,6 @@
         document.getElementsByClassName('alert')[0].remove();
     }
 
-
     function setActive()
     {
     let navbar = document.getElementById('dashboard-menu');
