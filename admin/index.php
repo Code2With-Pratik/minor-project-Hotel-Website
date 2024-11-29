@@ -18,6 +18,10 @@ if ((isset($_SESSION['adminLogin']) && $_SESSION['adminLogin'] == true)) {
     <?php require('inc/links.php'); ?>
 </head>
 <style>
+    .bg-custom {
+    background-color: #fff3e0;
+    color: #2e7d32; /* Complementary Text Color */
+    }
     div.form-container {
         position: absolute;
         top: 50%;
@@ -33,11 +37,35 @@ if ((isset($_SESSION['adminLogin']) && $_SESSION['adminLogin'] == true)) {
     .hidden {
         display: none;
     }
+
+    .back-btn {
+        display: inline-block;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        padding: 10px 20px;
+        background-color: #fd7e14; /* Warm Orange */
+        color: white;
+        text-decoration: none;
+        border-radius: 5px;
+        font-size: 14px;
+    }
+
+    .back-btn:hover {
+        background-color: #0056b3; /* Darker Blue */
+    }
 </style>
-<body class="bg-light">
-    
+<body class="bg-custom">
+  <div class="d-flex justify-content-center align-items-center mt-4">
+    <a href="../index.php" class="text-decoration-none">
+        <h1 class="display-4 mt-4 h-font text-dark">GrandStay</h1>
+        <span class="badge bg-primary">Only Admin or Authorised person can login</span>
+    </a>
+   </div> 
   <!-- Login and Register Form -->
   <div class="form-container text-center rounded bg-white shadow overflow-hidden">
+    <!-- Back Button -->
+    <a href="../index.php" class="back-btn">Back to Front Page</a>
+
     <!-- Toggle Headers -->
     <h4 id="login-tab" class="bg-dark text-white py-3">ADMIN LOGIN</h4>
     <h4 id="register-tab" class="bg-dark text-white py-3 hidden">ADMIN REGISTER</h4>
