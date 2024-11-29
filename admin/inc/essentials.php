@@ -10,12 +10,13 @@
 
     // Backend upload process needs this data 
 
-    define('UPLOAD_IMAGE_PATH', $_SERVER['DOCUMENT_ROOT'] . '/minor project/images/');
-    define('ABOUT_FOLDER','about/');
-    define('CAROUSEL_FOLDER','carousel/');
-    define('FACILITIES_FOLDER','facilities/');
-    define('ROOMS_FOLDER','rooms/');
-    define('USERS_FOLDER','users/');
+define('UPLOAD_IMAGE_PATH', $_SERVER['DOCUMENT_ROOT'] . '/minor project/images/');
+define('ABOUT_FOLDER','about/');
+define('CAROUSEL_FOLDER','carousel/');
+define('FACILITIES_FOLDER','facilities/');
+define('ROOMS_FOLDER','rooms/');
+define('USERS_FOLDER','users/');
+
 
 function adminLogin()
 {
@@ -35,18 +36,27 @@ function redirect($url){
      </script>";
      exit;
 }
+function alert($type, $msg) {
+  $bs_class = ($type == "success") ? "alert-success" : "alert-danger";
 
-function alert($type,$msg){
-
-    $bs_class = ($type == "success") ? "alert-success" : "alert-danger";
-
-    echo <<<alert
-        <div class="alert $bs_class alert-dismissible fade show custom-alert" role="alert">
-            <strong class="me-3" >$msg</strong>
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>
-     alert;
+  echo '
+      <div class="alert ' . $bs_class . ' alert-dismissible fade show custom-alert" role="alert">
+          <strong class="me-3">' . $msg . '</strong>
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+      <script>
+          setTimeout(() => {
+              const alertElement = document.querySelector(".custom-alert");
+              if (alertElement) {
+                  alertElement.classList.remove("show"); // Trigger Bootstrap fade out
+                  alertElement.addEventListener("transitionend", () => alertElement.remove());
+              }
+          }, 2000);
+      </script>
+  ';
 }
+
+
 
 function uploadImage($image,$folder)
 {
