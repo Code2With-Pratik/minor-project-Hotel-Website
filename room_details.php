@@ -3,7 +3,8 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Hotel - ROOMS DETAILS</title>
+    <title>GrandStay - ROOMS DETAILS</title>
+    <link rel="icon" href="images/logo/hotel-logo.avif">
     <?php require('inc/links.php'); ?>
   </head>
   <body class="bg-light">
@@ -176,10 +177,17 @@
                         </div>
                     area;
 
-                    echo<<<book
-                       <a href="#" class="btn w-100 text-white custom-bg shadow-none mb-1">Book Now</a>
-                    book;
+                    $book_btn = "";
 
+                    if(!$row['shutdown']){
+                      $login=0;
+                      if(isset($_SESSION['login']) && $_SESSION['login'] === true){
+                        $login=1;
+                      }
+                      echo<<<book
+                         <button onclick='checkLoginToBook($login,$room_data[id])' class="btn w-100 text-white custom-bg shadow-none mb-1">Book Now</button>
+                      book;
+                    }
 
                   ?>
                 </div>
@@ -198,12 +206,13 @@
                </div>
                  <div class="profile d-flex align-item-center mb-2">
                    <img src="images/features/star.svg" width="30px">
-                   <h6 class="m-2 ms-0">Random user1</h6>
+                   <h6 class="m-2 ms-0">Vivek Yadav</h6>
                  </div>
                  <p>
-                   Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                   Quod assumenda nobis eveniet quisquam alias magni velit perspiciatis 
-                   sequi ipsa ex!
+                 Great value for money stay near Helsinki station, location was fantastic,
+                  room was spacious a living room area flanked by the 2 
+                 rooms on each side , place was clean, staff were friendly, breakfast was
+                  great, water pressure was strong and water heater worked well."
                  </p>
                  <div class="rating">
                    <i class="bi bi-star-fill text-warning"></i>
@@ -215,10 +224,6 @@
              </div>
   </div>
 </div>
-
-
-
-
 
  <?php require('inc/footer.php');?>
 
