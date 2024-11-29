@@ -3,8 +3,10 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Hotel - ROOMS</title>
+    <title>GrandStay - ROOMS</title>
+    <link rel="icon" href="images/logo/hotel-logo.avif">
     <?php require('inc/links.php'); ?>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   </head>
   <body class="bg-light">
 
@@ -19,56 +21,62 @@
 <div class="container-fluid">
   <div class="row">
 
-    <div class="col-lg-3 col-md-12 mb-lg-0 mb-4 ps-4">
-      <nav class="navbar navbar-expand-lg navbar-light bg-white rounded shadow">
-        <div class="container-fluid flex-lg-column align-items-stretch">
-          <h4 class="mt-2">FILTERS</h4>
-          <button class="navbar-toggler shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#filterDropdown" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse flex-column align-items-stretch mt-2" id="filterDropdown">
-            <div class="border bg-light p-3 rounded mb-2">
-              <h5 class="mb-3" style="font-size: 18px;">CHECK AVAILABILITY</h5>
-                <label class="form-label">Check In</label>
-                <input type="date" class="form-control shadow-none">
+      <div class="col-lg-3 col-md-12 mb-lg-0 mb-4 ps-4"> 
+          <nav class="navbar navbar-expand-lg navbar-light bg-white rounded shadow">
+              <div class="container-fluid flex-lg-column align-items-stretch">
+                  <h4 class="mt-2">FILTERS</h4>
+                  <button class="navbar-toggler shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#filterDropdown" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                      <span class="navbar-toggler-icon"></span>
+                  </button>
+                  <div class="collapse navbar-collapse flex-column align-items-stretch mt-2" id="filterDropdown">
+                      <div class="border bg-light p-3 rounded mb-2">
+                          <h5 class="mb-3" style="font-size: 18px;">CHECK AVAILABILITY</h5>
+                          <label class="form-label">Check In</label>
+                          <input type="date" id="check_in" class="form-control shadow-none">
+                          <label class="form-label">Check Out</label>
+                          <input type="date" id="check_out" class="form-control shadow-none">
+                      </div>
+                      <div class="border bg-light p-3 rounded mb-2">
+                          <h5 class="mb-3" style="font-size: 18px;">FACILITIES</h5>
+                          <div class="mb-2">
+                              <input type="checkbox" id="facility1" class="form-check-input shadow-none me-1">
+                              <label class="form-check-label" for="facility1">Facility one</label>
+                          </div>
+                          <div class="mb-2">
+                              <input type="checkbox" id="facility2" class="form-check-input shadow-none me-1">
+                              <label class="form-check-label" for="facility2">Facility two</label>
+                          </div>
+                          <div class="mb-2">
+                              <input type="checkbox" id="facility3" class="form-check-input shadow-none me-1">
+                              <label class="form-check-label" for="facility3">Facility three</label>
+                          </div>
+                      </div>
+                      <div class="border bg-light p-3 rounded mb-2">
+                          <h5 class="mb-3" style="font-size: 18px;">GUESTS</h5>
+                          <div class="d-flex">
+                              <div class="me-3">
+                                  <label class="form-label">Adults</label>
+                                  <input type="number" id="adults" class="form-control shadow-none">
+                              </div>
+                              <div>
+                                  <label class="form-label">Children</label>
+                                  <input type="number" id="children" class="form-control shadow-none">
+                              </div>
+                          </div>
+                      </div>
+                      <button class="btn btn-primary mt-3" id="filterButton">Apply Filters</button>
+                  </div>
+              </div>
+          </nav>
+      </div>
+      
+      <div class="col-lg-9 col-mb-12 px-4" id="rooms-data">
+        
+        
+              <div id="room-list" class="row mt-3">
+                  <!-- Filtered rooms will be displayed here -->
+              </div>
 
-                <label class="form-label">Check In</label>
-                <input type="date" class="form-control shadow-none">
-            </div>
-            <div class="border bg-light p-3 rounded mb-2">
-              <h5 class="mb-3" style="font-size: 18px;">FACILITIES</h5>
-              <div class="mb-2">
-                <input type="checkbox" id="f1" class="form-check-input shadow-none me-1">
-                <label class="form-check-label" for="f1">Facility one</label>
-              </div>
-              <div class="mb-2">
-                <input type="checkbox" id="f2" class="form-check-input shadow-none me-1">
-                <label class="form-check-label" for="f2">Facility two</label>
-              </div>
-              <div class="mb-2">
-                <input type="checkbox" id="f3" class="form-check-input shadow-none me-1">
-                <label class="form-check-label" for="f3">Facility three</label>
-              </div>
-            </div>
-            <div class="border bg-light p-3 rounded mb-2">
-              <h5 class="mb-3" style="font-size: 18px;">GUESTS</h5>
-              <div class="d-flex">
-                <div class="me-3">
-                  <label class="form-label">Adults</label>
-                  <input type="number" class="form-control shadow-none">
-                </div>
-                <div>
-                  <label class="form-label">Childrens</label>
-                  <input type="number" class="form-control shadow-none">
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </nav>
-    </div>
-
-    <div class="col-lg-9 col-mb-12 px-4">
 
 
       <?php
@@ -113,6 +121,16 @@
               if (!empty($thumb_res['image'])) {
                   $room_thumb = ROOMS_IMG_PATH . $thumb_res['image']; // Update with the actual thumbnail
               }
+          }
+
+          $book_btn = "";
+
+          if(!$row['shutdown']){
+            $login=0;
+            if(isset($_SESSION['login']) && $_SESSION['login'] === true){
+              $login=1;
+            }
+           $book_btn = "<button onclick='checkLoginToBook($login,$room_data[id])' class='btn btn-sm w-100 text-white custom-bg shadow-none mb-2'>Book Now</button>";
           }
 
 
@@ -181,7 +199,7 @@
                 </div>
                 <div class="col-md-2 mt-lg-0 mt-md-0 mt-4 text-center">
                   <h6 class="mb-4">₹$room_data[price] /- per night</h6>
-                  <a href="#" class="btn btn-sm w-100 text-white custom-bg shadow-none mb-2">Book Now</a>
+                  $book_btn
                   <a href="room_details.php?id=$room_data[id]" class="btn btn-sm w-100 btn-outline-dark shadow-none">More details</a>
                 </div>
               </div>
@@ -196,7 +214,39 @@
   </div>
 </div>
 
+<script>
+    $(document).ready(function() {
+    $('#filterButton').click(function() {
+        // Get filter values
+        var check_in = $('#check_in').val();
+        var check_out = $('#check_out').val();
+        var facilities = [];
+        if ($('#facility1').prop('checked')) facilities.push('Facility one');
+        if ($('#facility2').prop('checked')) facilities.push('Facility two');
+        if ($('#facility3').prop('checked')) facilities.push('Facility three');
+        var adults = $('#adults').val();
+        var children = $('#children').val();
 
+        // AJAX request to filter rooms
+        $.ajax({
+            type: 'POST',
+            url: 'filter_rooms.php',
+            data: {
+                check_in: check_in,
+                check_out: check_out,
+                facilities: facilities,
+                adults: adults,
+                children: children
+            },
+            success: function(response) {
+                // Show the filtered rooms in a specific div
+                $('#room-list').html(response);
+            }
+        });
+    });
+});
+
+</script>
 
  <?php require('inc/footer.php');?>
 
