@@ -1,60 +1,60 @@
 :root{
---teal: #2ec1ac;
---teal_hover: #279e8c;
+  --teal: #2ec1ac;
+  --teal_hover: #279e8c;
 }
 * {
-  font-family: "Poppins", sans-serif;
-}
-.h-font {
-  font-family: "Merienda", cursive;
-}
-/* Chrome, Safari, Edge, Opera */
- input::-webkit-outer-spin-button, */
- input::-webkit-inner-spin-button {
-        -webkit-appearance: none;
-         margin: 200px;
+    font-family: "Poppins", sans-serif;
+  }
+  .h-font {
+    font-family: "Merienda", cursive;
+  }
+  /* Chrome, Safari, Edge, Opera */
+   input::-webkit-outer-spin-button, */
+   input::-webkit-inner-spin-button {
+          -webkit-appearance: none;
+           margin: 200px;
+             }
+
+ /* Firefox */
+   input[type=number] {
+           -moz-appearance: textfield;
            }
 
-/* Firefox */
- input[type=number] {
-         -moz-appearance: textfield;
-         }
-
-.custom-bg{
-  background-color: var(--teal);
-  border: 1px solid var(--teal) ;
- }        
-.custom-bg:hover{
-  background-color: var(--teal_hover);
-  border-color: var(--teal_hover);
- }     
+ .custom-bg{
+    background-color: var(--teal);
+    border: 1px solid var(--teal) ;
+   }        
+ .custom-bg:hover{
+    background-color: var(--teal_hover);
+    border-color: var(--teal_hover);
+   }     
 .h-line{
-width: 150px;
-margin: 0 auto;
-height: 1.7px;
+  width: 150px;
+  margin: 0 auto;
+  height: 1.7px;
 }
 .custom-alert{
-position: fixed;
-top: 80px;
-right: 25px;
-z-index: 1100;
+  position: fixed;
+  top: 80px;
+  right: 25px;
+  z-index: 1100;
 }
 /* width */
 ::-webkit-scrollbar {
-width: 10px;
+  width: 10px;
 }
 
 /* Track */
 ::-webkit-scrollbar-track {
-background: #f1f1f1;
+  background: #f1f1f1;
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-background: rgb(36, 36, 36);
+  background: rgb(36, 36, 36);
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-background: #555;
+  background: #555;
 }
