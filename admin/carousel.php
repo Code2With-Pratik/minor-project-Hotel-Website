@@ -9,6 +9,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Panel - Carousel</title>
+    <link rel="icon" href="../images/logo/hotel-logo.avif">
     <?php require('inc/links.php'); ?>
 </head>
 <body class="bg-light">
@@ -128,10 +129,13 @@
               </div>
             </div>
 
+
       </div>
     </div>
 </div>
  
+
+
 <?php require('inc/scripts.php'); ?> 
 <script src="scripts/carousel.js"></script>
 </body>
