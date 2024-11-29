@@ -134,8 +134,6 @@
     </div>
 </div>
  
-
-
 <?php require('inc/scripts.php'); ?> 
 <script src="scripts/carousel.js"></script>
 </body>
