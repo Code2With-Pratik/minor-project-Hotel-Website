@@ -3,7 +3,8 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Hotel - Contact</title>
+    <title>GrandStay - Contact</title>
+    <link rel="icon" href="images/logo/hotel-logo.avif">
     <?php require('inc/links.php'); ?>
     <style>
       .pop:hover{
@@ -21,9 +22,9 @@
   <h2 class="fw-bold h-font text-center">CONTACT US</h2>
   <div class="h-line bg-dark "></div>
   <p class="text-center mt-3">
-    Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
-    Exercitationem quasi deleniti quae <br> officiis accusamus minus iusto, 
-    corrupti perferendis harum maxime.
+  Reach us anytime! We're here to assist with bookings,<br>
+   inquiries, or feedback. Connect via phone,<br>
+    email, or visit us directly."
   </p>
 </div>
 
@@ -99,7 +100,7 @@
           <label class="form-label" style="font-weight: 500;">Message</label>
           <textarea name="message" required class="form-control shadow-none" rows="5" style="resize: none;"></textarea>
           </div>
-      <button type="submit" name="send" class="btn text-white custom-bg mt-3">SEND</button>
+         <button type="submit" name="send" class="btn text-white custom-bg mt-3">SEND</button>
 
         </form>        
       </div>
@@ -125,8 +126,6 @@
     }
   }
 ?>
-
-
 
  <?php require('inc/footer.php');?>
 
