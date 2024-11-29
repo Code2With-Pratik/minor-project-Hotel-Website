@@ -10,6 +10,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Panel - Users</title>
+    <link rel="icon" href="../images/logo/hotel-logo.avif">
     <?php require('inc/links.php'); ?>
 </head>
 <body class="bg-light">
@@ -61,7 +62,6 @@
 </div>
  
               
-
 <?php require('inc/scripts.php'); ?> 
 
 <script src="scripts/users.js"></script>
