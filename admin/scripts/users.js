@@ -30,32 +30,31 @@ xhr.onload = function(){
 xhr.send('toggle_status='+id+'&value='+val);
 }
 
-function remove_user(user_id)
-{
-if(confirm("Are you sure, you want to remove this user?"))
-    {
-    let data = new FormData();
-    data.append('user_id',user_id);
-    data.append('remove_user','');
+function remove_user(user_id) {
+    // Confirm before deletion
+    if (confirm("Are you sure, you want to remove this user?")) {
+        let data = new FormData();
+        data.append('user_id', user_id);
+        data.append('remove_user', '');
 
-    let xhr = new XMLHttpRequest();
-    xhr.open("POST", "ajax/users.php",true);
+        let xhr = new XMLHttpRequest();
+        xhr.open("POST", "ajax/users.php", true);
 
-    xhr.onload = function()
-    {
-        if(this.responseText == 1){
-        alert('success','User removed!');
-        get_users();
-        }
-        else{
-        alert('error','User removel failed!');
-        }
-    };
+        // Handle the response after the request is completed
+        xhr.onload = function () {
+            if (this.responseText == 1) {
+                alert('User removed successfully!');
+                get_users();  // Assuming this reloads the user list
+            } else {
+                alert('User removal failed!');
+            }
+        };
 
-    xhr.send(data);
-    }   
-
+        // Send the data to the server
+        xhr.send(data);
+    }
 }
+
 
 function search_user(username) {
     let xhr = new XMLHttpRequest();
