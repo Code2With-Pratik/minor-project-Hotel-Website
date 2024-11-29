@@ -20,7 +20,6 @@ if ((isset($_SESSION['adminLogin']) && $_SESSION['adminLogin'] == true)) {
 <style>
     .bg-custom {
     background-color: #fff3e0;
-    color: #2e7d32; /* Complementary Text Color */
     }
     div.form-container {
         position: absolute;
