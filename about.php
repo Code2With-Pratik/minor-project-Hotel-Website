@@ -3,7 +3,8 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Hotel - About</title>
+    <title>GrandStay - About</title>
+    <link rel="icon" href="images/logo/hotel-logo.avif">
     <?php require('inc/links.php'); ?>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
     <style>
@@ -20,21 +21,24 @@
   <h2 class="fw-bold h-font text-center">About Us</h2>
   <div class="h-line bg-dark "></div>
   <p class="text-center mt-3">
-    Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
-    Exercitationem quasi deleniti quae <br> officiis accusamus minus iusto, 
-    corrupti perferendis harum maxime.
+     Experience Grandeur, Every Day Where Luxury Meets Comfort</br>
+        Experience Grandeur, Every Day .Affordable Comfort,
+        <br> Anytime and Smart Stays for Savvy Travelers
+       . Simplify Your Stay </p>
   </p>
 </div>
 
 <div class="container">
   <div class="row justify-content-between  align-items-center">
     <div class="col-lg-6 col-md-5 mb-4 order-lg-1 order-md-1 order-2">
-      <h3 class="mb-3">Lorem ipsum dolor sit amet.</h3>
+      <h2 class="mb-4 fw-bold h-font">"GrandStay - Where Every Stay is a Grand Experience"</h2>
+      <h6 class="mb-4 h-font">- grandstay</h6>
+
       <p>
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. 
-        Iusto placeat ullam minus excepturi quibusdam quia 
-        repellendus aspernatur illo dignissimos tempora.
-        Lorem ipsum dolor sit amet.
+      "Welcome to GrandStay, where comfort meets luxury. Experience exceptional
+       hospitality, world-class amenities, and unforgettable stays tailored just for you."
+      Discover relaxation, convenience, and a welcoming atmosphere at every step.
+       Let GrandStay be your destination for timeless experiences and cherished moments."
       </p>
     </div>
     <div class="col-lg-5 col-md-5 mb-4 order-lg-2 order-md-2 order-1">
@@ -79,28 +83,24 @@
   <div class="swiper mySwiper">
     <div class="swiper-wrapper mb-5 ">
       <div class="swiper-slide bg-white text-center overflow-hidden rounded">
-        <img src="images/about/team.jpg" class="w-100">
-        <h5 class="mt-2">Random Name</h5>
+        <img src="images/users/images.jpeg" class="w-100">
+        <h5 class="mt-2">Henry</h5>
       </div>
       <div class="swiper-slide bg-white text-center overflow-hidden rounded">
-        <img src="images/about/team.jpg" class="w-100">
-        <h5 class="mt-2">Random Name</h5>
+        <img src="images/users/employee.jpg" class="w-100">
+        <h5 class="mt-2">Sufi</h5>
+      </div>  
+      <div class="swiper-slide bg-white text-center overflow-hidden rounded">
+        <img src="images/users/images2jpeg.jpeg" class="w-100">
+        <h5 class="mt-2">Goyal</h5>
       </div>
       <div class="swiper-slide bg-white text-center overflow-hidden rounded">
-        <img src="images/about/team.jpg" class="w-100">
-        <h5 class="mt-2">Random Name</h5>
+        <img src="images/users/images3.jpeg" class="w-100">
+        <h5 class="mt-2">Param</h5>
       </div>
       <div class="swiper-slide bg-white text-center overflow-hidden rounded">
-        <img src="images/about/team.jpg" class="w-100">
-        <h5 class="mt-2">Random Name</h5>
-      </div>
-      <div class="swiper-slide bg-white text-center overflow-hidden rounded">
-        <img src="images/about/team.jpg" class="w-100">
-        <h5 class="mt-2">Random Name</h5>
-      </div>
-      <div class="swiper-slide bg-white text-center overflow-hidden rounded">
-        <img src="images/about/team.jpg" class="w-100">
-        <h5 class="mt-2">Random Name</h5>
+        <img src="images/users/images4.jpeg" class="w-100">
+        <h5 class="mt-2">Maria</h5>
       </div>
     </div>
     <div class="swiper-pagination"></div>
