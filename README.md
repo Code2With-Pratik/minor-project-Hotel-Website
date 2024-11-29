@@ -1,4 +1,4 @@
-// TO use this project 
+// TO use this project Follow these steps 
 
 Step-1 Install XAMPP Server And start the apache server and MySQL 
        then open the phpMyadmin
