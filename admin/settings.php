@@ -109,11 +109,11 @@
                     <div class="mb-4">
                       <h6 class="card-subtitle mb-1 fw-bold">Phone Numbers</h6>
                       <p class="card-text mb-1">
-                        <i class="bi bi-telephone-fill"></i> 
+                        <i class="bi bi-telephone-fill"></i>+91  
                         <span id="pn1"></span>
                       </p>
                       <p class="card-text">
-                        <i class="bi bi-telephone-fill"></i> 
+                        <i class="bi bi-telephone-fill"></i>+91 
                         <span id="pn2"></span>
                       </p>
                     </div>
@@ -171,11 +171,11 @@
                               <label class="form-label fw-bold">Phone Number (with country code)</label>
                               <div class="input-group mb-3">
                                 <span class="input-group-text"><i class="bi bi-telephone-fill"></i></span>
-                                <input type="number" name="pn1" id="pn1_inp" class="form-control shadow-none" required>
+                                <input type="number" name="pn1" id="pn1_inp" class="form-control shadow-none" required oninput="if(this.value.length > 10) this.value = this.value.slice(0, 10);">
                               </div>
                               <div class="input-group mb-3">
                                 <span class="input-group-text"><i class="bi bi-telephone-fill"></i></span>
-                                <input type="number" name="pn2" id="pn2_inp" class="form-control shadow-none">
+                                <input type="number" name="pn2" id="pn2_inp" class="form-control shadow-none" oninput="if(this.value.length > 10) this.value = this.value.slice(0, 10);">
                               </div>
                             </div>     
                             <div class="mb-3 ">
@@ -241,7 +241,7 @@
                   </div>
                   <div class="col-md-2 mb-3">
                     <div class="card bg-dark text-white">
-                      <img src="../images/users/userimage2.png" class="card-img">
+                      <img src="../images/users/userimage2.jpg" class="card-img">
                       <div class="card-img-overlay text-end">
                         <button type="button" class="btn btn-danger btn-sm shadow-none">
                          <i class="bi bi-trash"></i> Delete
