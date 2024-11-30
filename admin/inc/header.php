@@ -36,6 +36,9 @@
                 <a class="nav-link text-white" href="users.php">Users</a>
               </li>
               <li class="nav-item">
+                <a class="nav-link text-white" href="admins.php">Admin</a>
+              </li>
+              <li class="nav-item">
                 <a class="nav-link text-white" href="user_queries.php">User Queries</a>
               </li>
               <li class="nav-item">
