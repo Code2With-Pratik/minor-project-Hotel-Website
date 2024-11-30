@@ -107,7 +107,7 @@
               </div>
               <div class="col-md-6">
                 <label class="form-label">Phone Number</label>
-                <input type="number" name="phone" class="form-control shadow-none" required>
+                <input type="number" name="phone" class="form-control shadow-none" required oninput="if(this.value.length > 10) this.value = this.value.slice(0, 10);">
               </div>
               <div class="col-md-12 mb-3">
                 <label class="form-label">Address</label>
