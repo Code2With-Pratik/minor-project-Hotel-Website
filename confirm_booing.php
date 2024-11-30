@@ -74,28 +74,28 @@
                   ?>
                   <!-- Use the fetched thumbnail image or the default one -->
                   <div class="carousel-item active">
-                    <img src="<?php echo isset($room_thumb) ? $room_thumb : 'images/rooms/6.png'; ?>" class="d-block w-100" >
+                    <img src="<?php echo isset($room_thumb) ? $room_thumb : 'images/rooms/6.jpg'; ?>" class="d-block w-100" >
                   </div>
                   <div class="carousel-item">
                     <img src="images/rooms/1.jpg" class="d-block w-100" >
                   </div>
                   <div class="carousel-item">
-                    <img src="images/rooms/2.png" class="d-block w-100">
+                    <img src="images/rooms/2.jpg" class="d-block w-100">
                   </div>
                   <div class="carousel-item">
-                    <img src="images/rooms/3.png" class="d-block w-100" >
+                    <img src="images/rooms/3.jpg" class="d-block w-100" >
                   </div>
                   <div class="carousel-item">
-                    <img src="images/rooms/4.png" class="d-block w-100" >
+                    <img src="images/rooms/4.jpg" class="d-block w-100" >
                   </div>
                   <div class="carousel-item">
-                    <img src="images/rooms/5.png" class="d-block w-100" >
+                    <img src="images/rooms/5.jpg" class="d-block w-100" >
                   </div>
                   <div class="carousel-item">
-                    <img src="images/rooms/7.png" class="d-block w-100" >
+                    <img src="images/rooms/7.jpg" class="d-block w-100" >
                   </div>
                   <div class="carousel-item">
-                    <img src="images/rooms/8.png" class="d-block w-100" >
+                    <img src="images/rooms/8.jpg" class="d-block w-100" >
                   </div>
                 </div>
                 <button class="carousel-control-prev" type="button" data-bs-target="#roomCarousel" data-bs-slide="prev">
@@ -131,7 +131,7 @@
                       </div>
                       <div class="col-md-6 mb-3">
                         <label class="form-label">Phone Number</label>
-                        <input type="number" name="billing_mobile" id="billing_mobile" class="form-control shadow-none" placeholder="Enter Phone No." required autofocus="">
+                        <input type="number" name="billing_mobile" id="billing_mobile" class="form-control shadow-none" placeholder="Enter Phone No." required autofocus="" oninput="if(this.value.length > 10) this.value = this.value.slice(0, 10);">
                       </div>
                       <br>
                       <div class="col-md-6 mb-3">
@@ -151,7 +151,7 @@
 
                         <div class="col-md-6 mb-3">
                           <label class="form-label">Total Amount</label>
-                          <input type="text" class="form-control shadow-none" name="payAmount" id="payAmount" placeholder="Enter Amount" required autofocus="">
+                          <input type="text" class="form-control shadow-none" name="payAmount" id="payAmount" placeholder="Total Amount" required autofocus="" readonly>
                         </div>
 
                         <button id="PayNow" name="pay_now" type="submit" class="btn w-100 text-white custom-bg shadow-sm mb-1" disabled >Pay Now</button>
