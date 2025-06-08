@@ -1,4 +1,3 @@
-
 //submit success model interface
 
 <!DOCTYPE html>
