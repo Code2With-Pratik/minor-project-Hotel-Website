@@ -96,3 +96,4 @@
     echo json_encode(['res'=>'error']); exit;
     }
 ?>
+//submit payment ending
